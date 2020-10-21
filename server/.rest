@@ -1,6 +1,0 @@
-POST http://localhost:5000/api/test
-Content-Type: application/x-www-form-urlencoded
-
-name=test&imageUrl=3sadasdasdasdasdasdas
-
-###

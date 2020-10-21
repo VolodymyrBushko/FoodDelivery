@@ -26,6 +26,7 @@ module.exports = {
   async addItem(req, res) {
     try {
       const item = new Item(req.body);
+      await item.save();
       await res.status(201).json(item);
     } catch (e) {
       console.log(e);
