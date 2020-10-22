@@ -1,3 +1,25 @@
+POST http://localhost:5000/api/users/register
+Content-Type: application/x-www-form-urlencoded
+
+login=user3&email=test@gmail.com&password=hfksdhfkd&phone=63784638463&imageUrl=http/jdkjf
+
+###
+PUT http://localhost:5000/api/users/update/5f91bfc06309af63288718af
+Content-Type: application/x-www-form-urlencoded
+
+login=user333&email=test@gmail.com&password=hf123456hone=63784638463&imageUrl=http/jdkjf
+###
+GET http://localhost:5000/api/users/5f91bfbb6309af63288718ae
+Accept: application/json
+
+###
+GET http://localhost:5000/api/users/
+Accept: application/json
+
+###
+DELETE http://localhost:5000/api/users/delete/5f91bfc06309af63288718af
+Content-Type: application/x-www-form-urlencoded
+###
 POST http://localhost:5000/api/categories/add
 Content-Type: application/x-www-form-urlencoded
 

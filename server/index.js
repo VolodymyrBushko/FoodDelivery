@@ -5,6 +5,8 @@ const PORT = config.get('port');
 const mongoose = require("mongoose");
 const cors = require('cors');
 const categoriesRouter = require("./routes/categoriesRouter.js");
+const userRouter = require("./routes/userRouter.js");
+
 const app = express();
 
 app.use(cors());
@@ -13,7 +15,7 @@ app.use(bodyParser.json());
 
 
 app.use("/api/categories/", categoriesRouter);
-
+app.use("/api/users/", userRouter);
 async function start() {
   try {
     await mongoose.connect(config.get('mongoUri'), {
