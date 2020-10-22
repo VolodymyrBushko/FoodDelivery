@@ -6,6 +6,7 @@ const mongoose = require("mongoose");
 const cors = require('cors');
 
 const itemRouter = require('./routes/itemRouter');
+const orderRouter = require('./routes/orderRouter');
 
 const app = express();
 
@@ -30,6 +31,7 @@ async function start() {
 }
 
 app.use('/api/items/', itemRouter);
+app.use('/api/orders/', orderRouter);
 
 start();
 
