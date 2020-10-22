@@ -4,12 +4,15 @@ const config = require('config');
 const PORT = config.get('port');
 const mongoose = require("mongoose");
 const cors = require('cors');
-
+const categoriesRouter = require("./routes/categoriesRouter.js");
 const app = express();
 
 app.use(cors());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
+
+
+app.use("/api/categories/", categoriesRouter);
 
 async function start() {
   try {

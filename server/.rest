@@ -1,6 +1,21 @@
-POST http://localhost:5000/api/test
+POST http://localhost:5000/api/categories/add
 Content-Type: application/x-www-form-urlencoded
 
-name=test&imageUrl=3sadasdasdasdasdasdas
+name=pizza2&imageUrl=new-element
+###
+GET http://localhost:5000/api/categories/5f908af39f6ade444485b014
+Accept: application/json
+###
+GET http://localhost:5000/api/categories/
+Accept: application/json
 
 ###
+DELETE http://localhost:5000/api/categories/delete/5f919ce36f98203d046ff693
+Content-Type: application/x-www-form-urlencoded
+###
+PUT http://localhost:5000/api/categories/update/5f919cdd6f98203d046ff692
+Content-Type: application/x-www-form-urlencoded
+
+name=pizza66&imageUrl=new-element66
+###
+
