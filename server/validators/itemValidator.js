@@ -31,7 +31,7 @@ module.exports = [
   body('imageUrl')
     .trim()
     .notEmpty()
-    .isString()
+    .isURL()
     .withMessage('invalid image url'),
 
   body('weight')
