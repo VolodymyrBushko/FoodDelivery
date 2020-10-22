@@ -7,6 +7,9 @@ const cors = require('cors');
 const categoriesRouter = require("./routes/categoriesRouter.js");
 const userRouter = require("./routes/userRouter.js");
 
+const itemRouter = require('./routes/itemRouter');
+const orderRouter = require('./routes/orderRouter');
+
 const app = express();
 
 app.use(cors());
@@ -20,7 +23,7 @@ async function start() {
   try {
     await mongoose.connect(config.get('mongoUri'), {
       useNewUrlParser: true,
-      useUnifiedTopology:true,
+      useUnifiedTopology: true,
       useCreateIndex: true
     });
     app.listen(PORT, function () {
@@ -31,6 +34,9 @@ async function start() {
     process.exit();
   }
 }
+
+app.use('/api/items/', itemRouter);
+app.use('/api/orders/', orderRouter);
 
 start();
 
