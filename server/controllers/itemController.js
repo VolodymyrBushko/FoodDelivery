@@ -1,4 +1,5 @@
 const Item = require('../models/Item');
+const {validationResult} = require('express-validator');
 
 module.exports = {
 
@@ -25,6 +26,11 @@ module.exports = {
 
   async addItem(req, res) {
     try {
+
+      const errors = validationResult(req);
+      if (!errors.isEmpty())
+        return res.status(422).json({message: errors.array()[0].msg});
+
       const item = new Item(req.body);
       await item.save();
       await res.status(201).json(item);
@@ -47,6 +53,11 @@ module.exports = {
 
   async updateItem(req, res) {
     try {
+
+      const errors = validationResult(req);
+      if (!errors.isEmpty())
+        return res.status(422).json({message: errors.array()[0].msg});
+
       const {id: _id} = req.params;
       const item = await Item.findByIdAndUpdate(_id, req.body);
       await res.status(202).json(item);
