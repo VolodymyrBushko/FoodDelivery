@@ -1,4 +1,5 @@
 const User = require("../models/User.js");
+const {validationResult} = require('express-validator');
 
 module.exports = {
   async getUsers(req, res) {
@@ -33,6 +34,10 @@ module.exports = {
   },
   async registerUser(req, res) {
     try {
+      const errors = validationResult(req);
+      if (!errors.isEmpty())
+        return res.status(422).json({message: errors.array()[0].msg});
+
       const user = new User(req.body);
       console.log(req.body);
       await user.save();
@@ -44,6 +49,10 @@ module.exports = {
   },
   async updateUserById(req, res) {
     try {
+      const errors = validationResult(req);
+      if (!errors.isEmpty())
+        return res.status(422).json({message: errors.array()[0].msg});
+
       const {id} = req.params;
       const user = await User.findByIdAndUpdate(id, req.body);
       await res.json(user);
@@ -60,5 +69,4 @@ module.exports = {
       res.status(500).json({message: 'Чтото пошло не такбпопробуйте снова'});
     }
   }
-
 }

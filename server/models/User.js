@@ -21,7 +21,12 @@ const schema = new Schema({
   },
   imageUrl: {
     type: String,
+  },
+  isAdmin:{
+    type:Boolean,
+    default:false
   }
+
 
 });
 

@@ -1,4 +1,5 @@
-const Category = require("../models/Categories.js")
+const Category = require("../models/Categories.js");
+const {validationResult} = require('express-validator');
 
 module.exports = {
   async getCategories(req, res) {
@@ -11,6 +12,11 @@ module.exports = {
   },
   async addCategory(req, res) {
     try {
+
+      const errors = validationResult(req);
+      if (!errors.isEmpty())
+        return res.status(422).json({message:errors.array()[0].msg});
+
       const {name, imageUrl} = req.body;
       const category = new Category({name: name, imageUrl: imageUrl});
       await category.save();
@@ -40,6 +46,11 @@ module.exports = {
   },
   async updateCategoryById(req, res) {
     try {
+
+      const errors = validationResult(req);
+      if (!errors.isEmpty())
+        return res.status(422).json({message:errors.array()[0].msg});
+
     const {id} = req.params;
     const category = await Category.findByIdAndUpdate(id,req.body);
     await res.json(category);

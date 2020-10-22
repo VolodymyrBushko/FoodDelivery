@@ -1,13 +1,13 @@
 POST http://localhost:5000/api/users/register
 Content-Type: application/x-www-form-urlencoded
 
-login=user3&email=test@gmail.com&password=hfksdhfkd&phone=63784638463&imageUrl=http/jdkjf
+login=12244&email=testgmail.com&password=hfksdhfkd&phone=63784638463&imageUrl=http/jdkjf&isAdmin=true
 
 ###
-PUT http://localhost:5000/api/users/update/5f91bfc06309af63288718af
+PUT http://localhost:5000/api/users/update/5f91be6aff99d61e34ab19f0
 Content-Type: application/x-www-form-urlencoded
 
-login=user333&email=test@gmail.com&password=hf123456hone=63784638463&imageUrl=http/jdkjf
+login=user333&email=testgmail.com&password=hf123456hone=63784638463&imageUrl=http/jdkjf
 ###
 GET http://localhost:5000/api/users/5f91bfbb6309af63288718ae
 Accept: application/json
@@ -23,7 +23,7 @@ Content-Type: application/x-www-form-urlencoded
 POST http://localhost:5000/api/categories/add
 Content-Type: application/x-www-form-urlencoded
 
-name=pizza2&imageUrl=new-element
+name=77&imageUrl=https://express-validator.github.io/docs/
 ###
 GET http://localhost:5000/api/categories/5f908af39f6ade444485b014
 Accept: application/json
