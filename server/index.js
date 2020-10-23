@@ -1,20 +1,21 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const config = require('config');
-const PORT = config.get('port');
 const mongoose = require("mongoose");
-const cors = require('cors');
+const passport = require('passport');
 const categoriesRouter = require("./routes/categoriesRouter.js");
 const userRouter = require("./routes/userRouter.js");
-
 const itemRouter = require('./routes/itemRouter');
 const orderRouter = require('./routes/orderRouter');
+const PORT = config.get('port');
 
 const app = express();
 
-app.use(cors());
+app.use(require('cors')());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
+app.use(passport.initialize());
+require('./middleware/passport')(passport);
 
 async function start() {
   try {

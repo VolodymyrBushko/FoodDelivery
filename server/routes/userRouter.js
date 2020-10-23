@@ -1,8 +1,11 @@
 const express = require("express");
+const passport = require("passport");
 const userController = require("../controllers/userController.js");
 const validator = require("../validators/userValidator.js");
 const userRouter = express.Router();
 
+// example route guard
+// userRouter.get("/", passport.authenticate('jwt', {session: false}), userController.getUsers);
 
 userRouter.get("/", userController.getUsers);
 userRouter.get("/:id", userController.getUserById);
