@@ -1,6 +1,9 @@
 const User = require('../models/User.js');
 const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
 const {validationResult} = require('express-validator');
+const config = require('config');
+const jwtSecret = config.get('jwtSecret');
 
 module.exports = {
 
@@ -28,7 +31,22 @@ module.exports = {
   async loginUser(req, res) {
     try {
 
-
+      const user = await User.findOne({email: req.body.email});
+      if (user) {
+        const passwordResult = await bcrypt.compare(req.body.password, user.password);
+        if (passwordResult) {
+          const token = jwt.sign({
+            id: user._id,
+            email: user.email,
+            isAdmin: user.isAdmin
+          }, jwtSecret, {expiresIn: 60 * 60});
+          await res.json({token: `Bearer ${token}`});
+        } else {
+          await res.status(401).json({message: 'invalid email or password'});
+        }
+      } else {
+        await res.status(404).json({message: 'no user with this email address'});
+      }
 
     } catch (e) {
       console.log(e);
