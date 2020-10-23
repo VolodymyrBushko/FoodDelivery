@@ -1,4 +1,5 @@
 const User = require('../models/User.js');
+const bcrypt = require('bcryptjs');
 const {validationResult} = require('express-validator');
 
 module.exports = {
@@ -26,13 +27,9 @@ module.exports = {
 
   async loginUser(req, res) {
     try {
-      const {email, password} = req.body;
-      const user = await User.findOne({email, password});
-      if (user) {
-        res.sendStatus(200);
-      } else {
-        res.sendStatus(403);
-      }
+
+
+
     } catch (e) {
       console.log(e);
       await res.status(500).json({message: e.message});
@@ -47,7 +44,8 @@ module.exports = {
         return res.status(422).json({message: errors.array()[0].msg});
 
       const user = new User(req.body);
-      console.log(req.body);
+      const salt = await bcrypt.genSalt(10);
+      user.password = await bcrypt.hash(user.password, salt);
       await user.save();
       await res.status(201).json(user);
     } catch (e) {

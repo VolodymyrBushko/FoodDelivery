@@ -16,9 +16,6 @@ app.use(cors());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 
-
-app.use("/api/categories/", categoriesRouter);
-app.use("/api/users/", userRouter);
 async function start() {
   try {
     await mongoose.connect(config.get('mongoUri'), {
@@ -37,6 +34,8 @@ async function start() {
 
 app.use('/api/items/', itemRouter);
 app.use('/api/orders/', orderRouter);
+app.use('/api/categories/', categoriesRouter);
+app.use('/api/users/', userRouter);
 
 start();
 
