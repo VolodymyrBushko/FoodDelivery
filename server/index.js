@@ -1,12 +1,14 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const config = require('config');
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 const passport = require('passport');
-const categoriesRouter = require("./routes/categoriesRouter.js");
-const userRouter = require("./routes/userRouter.js");
+
+const categoriesRouter = require('./routes/categoriesRouter.js');
+const userRouter = require('./routes/userRouter.js');
 const itemRouter = require('./routes/itemRouter');
 const orderRouter = require('./routes/orderRouter');
+
 const PORT = config.get('port');
 
 const app = express();
@@ -25,10 +27,10 @@ async function start() {
       useCreateIndex: true
     });
     app.listen(PORT, function () {
-      console.log("Сервер ожидает подключения...");
+      console.log(`Server has been started on port: ${PORT}`);
     });
   } catch (e) {
-    console.log("Server error", e.message);
+    console.log('Server error', e.message);
     process.exit();
   }
 }
@@ -40,6 +42,6 @@ app.use('/api/users/', userRouter);
 
 start();
 
-process.on("SIGINT", () => {
+process.on('SIGINT', () => {
   mongoose.disconnect(() => process.exit())
 });

@@ -4,14 +4,11 @@ const userController = require("../controllers/userController.js");
 const validator = require("../validators/userValidator.js");
 const userRouter = express.Router();
 
-// example route guard
-// userRouter.get("/", passport.authenticate('jwt', {session: false}), userController.getUsers);
-
-userRouter.get("/", userController.getUsers);
-userRouter.get("/:id", userController.getUserById);
+userRouter.get("/", passport.authenticate('jwt', {session: false}), userController.getUsers);
+userRouter.get("/:id", passport.authenticate('jwt', {session: false}), userController.getUserById);
 userRouter.post("/login", userController.loginUser);
 userRouter.post("/register", validator, userController.registerUser);
-userRouter.put("/update/:id", validator, userController.updateUserById);
-userRouter.delete("/delete/:id", userController.deleteUserById);
+userRouter.put("/update/:id", [passport.authenticate('jwt', {session: false}), validator], userController.updateUserById);
+userRouter.delete("/delete/:id", passport.authenticate('jwt', {session: false}), userController.deleteUserById);
 
 module.exports = userRouter;
