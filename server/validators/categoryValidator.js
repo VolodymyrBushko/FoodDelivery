@@ -6,7 +6,7 @@ module.exports = [
     .trim()
     .notEmpty()
     .isString()
-    .isLength({min:4})
+    .isLength({min: 4})
     .withMessage('invalid category name'),
 
   body('imageUrl')

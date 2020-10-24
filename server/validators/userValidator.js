@@ -1,5 +1,6 @@
 const {body} = require('express-validator');
 const User = require('../models/User');
+
 module.exports = [
 
   body('login')
@@ -8,6 +9,7 @@ module.exports = [
     .isString()
     .isLength({min: 4})
     .withMessage('invalid user login'),
+
   body('email')
     .notEmpty()
     .isEmail()
@@ -20,7 +22,15 @@ module.exports = [
       })
     })
     .withMessage('invalid user email'),
+
   body('password')
+    .trim()
+    .notEmpty()
+    .isString()
+    .isLength({min: 8})
+    .withMessage('invalid password'),
+
+  body('confirm')
     .trim()
     .notEmpty()
     .isString()
@@ -31,18 +41,19 @@ module.exports = [
       }
       return true;
     })
-    .withMessage('invalid user password')
-  ,
+    .withMessage('invalid confirm password'),
+
   body('phone')
     .trim()
     .notEmpty()
     .isNumeric()
     .isMobilePhone('uk-UA')
-    .withMessage('invalid user phone')
-  ,
+    .withMessage('invalid user phone'),
+
   body('imageUrl')
     .trim()
     .optional()
     .isURL()
     .withMessage('invalid user imageUrl')
+
 ];
