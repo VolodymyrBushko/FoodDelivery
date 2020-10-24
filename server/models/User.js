@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
+
 const schema = new Schema({
   login: {
     type: String,
@@ -22,14 +23,10 @@ const schema = new Schema({
   imageUrl: {
     type: String,
   },
-  isAdmin:{
-    type:Boolean,
-    default:false
+  isAdmin: {
+    type: Boolean,
+    default: false
   }
-
-
 });
 
 module.exports = mongoose.model('User', schema);
-
-
