@@ -1,0 +1,28 @@
+footer{
+    width: 100%;
+    background-color:#1F1A14;
+    padding: 5px 8rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+p{
+    color: #FFB362;
+    margin:  5px;
+}
+
+.right{
+  margin-right: 20px;
+  background-color:#FFB362;
+  border-radius: 40px;
+}
+ul{
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 5px 10px;
+}
+img{
+  width: 48px;
+  margin: 0 5px;
+}
