@@ -18,6 +18,7 @@ import {HeaderComponent} from './components/header/header.component';
 import {NavbarComponent} from './components/navbar/navbar.component';
 import {CategoryListComponent} from './components/category-list/category-list.component';
 import {FooterComponent} from './components/footer/footer.component';
+import { BasketListComponent } from './components/basket-list/basket-list.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import {FooterComponent} from './components/footer/footer.component';
     NavbarComponent,
     CategoryListComponent,
     FooterComponent,
+    BasketListComponent,
   ],
   imports: [
     BrowserModule,

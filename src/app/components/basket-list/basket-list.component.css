@@ -1,0 +1,35 @@
+thead {
+    text-align: center;
+    width: auto;
+    height: auto;
+    background: #70675F;
+    color: #FFB362;
+}
+
+img {
+    border-radius: 10px;
+}
+
+tbody {
+    width: auto;
+    height: auto;
+    color: #FFB362;
+}
+tr {
+    text-align: center;
+    line-height: 70px;
+    width: auto;
+    height: auto;
+    background: #70675F;
+}
+
+#sub, #add, #del { 
+    margin: 5px;
+    border-radius: 10px;
+    color: #000000;
+}
+#btn {
+    border-radius: 40px;
+    align-items: center;
+    color: #000000;
+}
