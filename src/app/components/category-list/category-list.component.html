@@ -1,1 +1,23 @@
-<p>category-list works!</p>
+<div class="category-menu">
+
+  <ul class="category-item-list mr-auto">
+
+    <li *ngFor="let category of categories"
+        class="category-item"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{exact:true}"
+    >
+      <a routerLink="/categories/{{category.id}}"
+         class="category-item-link"
+      >
+        <img src="assets/images/category-list/{{category.icon}}"
+             [alt]="category.label"
+             class="food-icon"
+        >
+        {{category.label}}
+      </a>
+    </li>
+
+  </ul>
+
+</div>

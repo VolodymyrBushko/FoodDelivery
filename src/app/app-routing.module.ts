@@ -16,7 +16,7 @@ const routes: Routes = [
   {path: 'about', component: AboutPageComponent},
   {path: 'basket', component: BasketPageComponent},
   {path: 'profile', component: ProfilePageComponent},
-  {path: 'category/:id', component: CategoryPageComponent},
+  {path: 'categories/:id', component: CategoryPageComponent},
   {path: 'order', component: OrderPageComponent},
   {path: 'login', component: LoginPageComponent},
   {path: 'register', component: RegisterPageComponent}

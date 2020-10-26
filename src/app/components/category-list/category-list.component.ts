@@ -7,6 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CategoryListComponent implements OnInit {
 
+  categories = [
+    {id: 1, label: 'drink', icon: 'drink.svg'},
+    {id: 2, label: 'pizza', icon: 'pizza.svg'},
+    {id: 3, label: 'sushi', icon: 'sushi.svg'},
+    {id: 4, label: 'dessert', icon: 'dessert.svg'}
+  ];
+
   constructor() { }
 
   ngOnInit(): void {
