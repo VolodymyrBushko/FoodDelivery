@@ -20,6 +20,7 @@ import {CategoryListComponent} from './components/category-list/category-list.co
 import {FooterComponent} from './components/footer/footer.component';
 import { BasketListComponent } from './components/basket-list/basket-list.component';
 import { OrderListComponent } from './components/order-list/order-list.component';
+import { InfoComponent } from './components/info/info.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { OrderListComponent } from './components/order-list/order-list.component
     FooterComponent,
     BasketListComponent,
     OrderListComponent,
+    InfoComponent,
   ],
   imports: [
     BrowserModule,
