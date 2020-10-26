@@ -18,6 +18,8 @@ import {HeaderComponent} from './components/header/header.component';
 import {NavbarComponent} from './components/navbar/navbar.component';
 import {CategoryListComponent} from './components/category-list/category-list.component';
 import {FooterComponent} from './components/footer/footer.component';
+import { ItemCardComponent } from './components/item-card/item-card.component';
+import { ControllRadioGroupComponent } from './components/controll-radio-group/controll-radio-group.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +37,8 @@ import {FooterComponent} from './components/footer/footer.component';
     NavbarComponent,
     CategoryListComponent,
     FooterComponent,
+    ItemCardComponent,
+    ControllRadioGroupComponent,
   ],
   imports: [
     BrowserModule,
