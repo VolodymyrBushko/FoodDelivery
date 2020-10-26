@@ -1,0 +1,41 @@
+h6 {
+    background-color: #E09546;
+}
+.test {
+    background-color: #E09546;
+    padding: 10px;
+}
+table {
+    background-color: #E09546;
+}
+.bacground {
+    background-color: #70675F;
+    padding-bottom: 10px;
+    border-radius: 20px;
+}
+.sum {
+    margin: auto;
+    width: 80%;
+    background: #FF901C;
+}
+h5 {
+    color: #E3A058;
+}
+.items {
+    background-color: #E09546;
+}
+td {
+    padding: 0;
+    margin-left: 5px;
+}
+h5 {
+    padding-top: 5px;
+}
+.card {
+    background-color: #FF901C;
+    
+}
+
+.onItem {
+    margin-left: 20px;
+}
