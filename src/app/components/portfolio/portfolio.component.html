@@ -1,0 +1,21 @@
+<div class="conteiner" *ngFor="let user of userList">
+    <div class="row">
+        <div>
+            <div class="avatar">
+                <img class="img"  [src]="user.imageUrl" width="200">
+            </div>
+            <div class="card-body">
+             <button class="btn btn-primary">Update</button>
+            </div>
+          </div>
+          <div>
+            <div>
+              <input class="text-login text-center" type="text" [value]="user.login">
+            </div>
+            <input class="text-email text-center" type="email" [value]="user.email">
+            <input class="text-phone text-center" type="text" [value]="user.phone">
+            <input class="text-file text-center" type="text" [value]="user.file">
+          </div>
+    </div>
+</div>
+ 

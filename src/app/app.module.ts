@@ -21,6 +21,7 @@ import {FooterComponent} from './components/footer/footer.component';
 import { BasketListComponent } from './components/basket-list/basket-list.component';
 import { OrderListComponent } from './components/order-list/order-list.component';
 import { InfoComponent } from './components/info/info.component';
+import { PortfolioComponent } from './components/portfolio/portfolio.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { InfoComponent } from './components/info/info.component';
     BasketListComponent,
     OrderListComponent,
     InfoComponent,
+    PortfolioComponent,
   ],
   imports: [
     BrowserModule,

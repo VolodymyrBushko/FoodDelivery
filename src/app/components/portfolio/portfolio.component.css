@@ -1,0 +1,21 @@
+.btn {
+    background: linear-gradient(180deg, #FF901C 0%, #FFB362 100%);
+    border-radius: 40px;
+    color: black;
+}
+.avatar {
+    background: #FF901C;
+    border: 3px solid #000000;
+    border-radius: 28px;
+}
+.text-login, .text-email, .text-phone, .text-file {
+    margin: 10px;
+    padding-bottom: 10px;
+    width: 50%;
+    background-color: #FF901C;
+    border-radius: 20px;
+}
+.btn {
+    width: 100%;
+}
+
