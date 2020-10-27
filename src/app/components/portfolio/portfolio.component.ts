@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-portfolio',
@@ -6,7 +7,6 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./portfolio.component.css']
 })
 export class PortfolioComponent implements OnInit {
-
   userList= [
     {
       id: 1,
@@ -19,9 +19,15 @@ export class PortfolioComponent implements OnInit {
       isAdmin: false
     }
   ]
-  constructor() { }
-
+  myForm : FormGroup;
+  constructor(private formBuilder: FormBuilder) { 
+    this.myForm = formBuilder.group({
+      "login": ["", [Validators.required]],
+      "email": ["", [ Validators.required, Validators.email]],
+      "phone": ["", [Validators.required]],
+      "file": ["", [Validators.required]]
+    });
+  }
   ngOnInit(): void {
   }
-
 }
