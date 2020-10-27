@@ -1,0 +1,22 @@
+.imageUrl{
+  width: 64px;
+
+  position: relative;
+  box-shadow: 3px 3px 8px -1px #A5A29D;
+}
+.myItem{
+  background-color: #C99966;
+  border-radius: 2px;
+}
+.myItem:hover{
+  background-color: #70675f;
+}
+.myItem:active{
+ transform: scale(1.1);
+}
+ul{
+  list-style: none;
+}
+.openPopup:focus {
+  outline: none;
+}

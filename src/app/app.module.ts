@@ -20,6 +20,8 @@ import {CategoryListComponent} from './components/category-list/category-list.co
 import {FooterComponent} from './components/footer/footer.component';
 import { ItemCardComponent } from './components/item-card/item-card.component';
 import { ControllRadioGroupComponent } from './components/controll-radio-group/controll-radio-group.component';
+import { ModelListComponent } from './components/model-list/model-list.component';
+import { ModalListPipePipe } from './pipes/modal-list-pipe.pipe';
 
 @NgModule({
   declarations: [
@@ -39,14 +41,16 @@ import { ControllRadioGroupComponent } from './components/controll-radio-group/c
     FooterComponent,
     ItemCardComponent,
     ControllRadioGroupComponent,
+    ModelListComponent,
+    ModalListPipePipe,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
-  ],
+    HttpClientModule,
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })
