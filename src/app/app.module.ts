@@ -3,6 +3,7 @@ import {NgModule} from '@angular/core';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {AppRoutingModule} from './app-routing.module';
+import { AgmCoreModule } from '@agm/core';
 
 import {AppComponent} from './app.component';
 import {HomePageComponent} from './pages/home-page/home-page.component';
@@ -26,6 +27,10 @@ import { ItemCardComponent } from './components/item-card/item-card.component';
 import { ControllRadioGroupComponent } from './components/controll-radio-group/controll-radio-group.component';
 import { ModelListComponent } from './components/model-list/model-list.component';
 import { ModalListPipePipe } from './pipes/modal-list-pipe.pipe';
+import { MatCarouselModule } from '@ngmodule/material-carousel';
+import {MapComponent} from './components/map/map.component';
+
+
 
 @NgModule({
   declarations: [
@@ -50,13 +55,14 @@ import { ModalListPipePipe } from './pipes/modal-list-pipe.pipe';
     ControllRadioGroupComponent,
     ModelListComponent,
     ModalListPipePipe,
+    MapComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
-    FormsModule,
-    ReactiveFormsModule,
-    HttpClientModule
+    MatCarouselModule.forRoot(),
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyANsMUgTON1gtAx6okd1VWPEhmpZb2-3A0'
+    }),
   ],
   providers: [
     {
