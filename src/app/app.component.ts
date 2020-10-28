@@ -19,11 +19,6 @@ export class AppComponent implements OnInit {
     if (token) {
       this.authService.setToken(token);
     }
-
-    // ***** test ***** //
-
-    // ***** test ***** //
-
   }
 
 }
