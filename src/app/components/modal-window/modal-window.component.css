@@ -1,0 +1,36 @@
+.mybtn{
+  background-color: #C99966;
+  border-radius: 40px;
+  font-size:16px ;
+  font-weight: bold;
+  padding: 10px;
+  display: block !important;
+}
+.mybtn:hover{
+  background-color: #9faa09;
+}
+.mybtn:active{
+  background-color: #ff901c;
+  transform: scale(1.1);
+}
+.btn:focus{
+  border: none !important;
+}
+.close-znak{
+  background-color: #EC2323;
+  border-radius: 50%;
+  width: 2em;
+  height: 2em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+} 
+
+.image {
+  max-width: 136px;
+}
+
+.fields-list {
+  margin-bottom: 0;
+  list-style: none;
+}

@@ -1,0 +1,41 @@
+<!-- <a routerLink="" [queryParams]="{'itemId':'3'}"
+    class="btn btn-lg btn-success" data-toggle="modal" data-target="#basicModal">
+  Click to open Modal
+</a>
+<hr/> -->
+
+<div class="modal fade" id="basicModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+      </div>
+      <div class="modal-body rootGood">
+        <button type="button" class="close-znak close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+        <h3 class=text-center>{{good.title}}</h3>
+
+        <div class="container">
+          <div class='row'>
+            <div class="col-5 d-flex align-items-center">
+              <img [src]="good.path" alt="назва товару" class="image">
+            </div>
+            <div class="col-7">
+
+              <ul class="fields-list">
+                <li><strong>weight:</strong>&nbsp;{{good.weight}}</li>
+                <li><strong>price:</strong>&nbsp;{{good.price}}</li>
+                <li><strong>category:</strong>&nbsp;{{good.category}}</li>
+                <li><hr/></li>
+                <li>{{good.description|maxLength}}</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer m-0 d-flex justify-content-center">
+            <button type="button" class="btn d-block mybtn">в корзину</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -19,6 +19,8 @@ import {NavbarComponent} from './components/navbar/navbar.component';
 import {CategoryListComponent} from './components/category-list/category-list.component';
 import {FooterComponent} from './components/footer/footer.component';
 import { FeedbackListComponent } from './components/feedback-list/feedback-list.component';
+import { ModalWindowComponent } from './components/modal-window/modal-window.component';
+import { MaxLengthPipe } from './pipes/max-length.pipe';
 
 @NgModule({
   declarations: [
@@ -37,6 +39,8 @@ import { FeedbackListComponent } from './components/feedback-list/feedback-list.
     CategoryListComponent,
     FooterComponent,
     FeedbackListComponent,
+    ModalWindowComponent,
+    MaxLengthPipe,
   ],
   imports: [
     BrowserModule,
