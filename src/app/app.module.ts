@@ -35,9 +35,15 @@ import {MatCarouselModule} from '@ngmodule/material-carousel';
 import {MapComponent} from './components/map/map.component';
 import {RouterModule} from '@angular/router';
 
+import { CardComponent } from './components/card/card.component';
+import { SliderComponent } from './components/slider/slider.component';
+
+
 
 @NgModule({
   declarations: [
+    CardComponent,
+    SliderComponent
     AppComponent,
     HomePageComponent,
     ContactsPageComponent,
