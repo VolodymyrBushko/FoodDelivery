@@ -7,7 +7,9 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "server": "npm run start --prefix server",
+    "dev": "concurrently \"npm run server\" \"npm run start\""
   },
   "private": true,
   "dependencies": {
@@ -20,11 +22,12 @@
     "@angular/platform-browser-dynamic": "~10.1.2",
     "@angular/router": "~10.1.2",
     "bootstrap": "^4.5.3",
+    "concurrently": "^5.3.0",
+    "config": "^3.3.2",
     "jquery": "^3.5.1",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
-    "zone.js": "~0.10.2",
-    "config": "^3.3.2"
+    "zone.js": "~0.10.2"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.1001.2",
