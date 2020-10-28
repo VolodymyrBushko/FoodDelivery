@@ -1,0 +1,40 @@
+<div class="container">
+  <ul>
+    <li *ngFor="let item of array">
+      <div class="" data-toggle="collapse" [attr.data-target]="'#a' + item.id"
+           aria-expanded="true">
+        <div class="myItem">
+          <p *ngIf="choice === 'items'">
+            <img [src]="item.imageUrl" class="imageUrl">
+            {{item['name']}}({{item['category']}})
+          </p>
+          <p *ngIf="choice === 'categories'">
+            <img [src]="item.imageUrl" class="imageUrl">
+            {{item['name']}}
+          </p>
+          <p *ngIf="choice === 'orders'">
+            {{item['user']}}<{{item['email']}}>({{item['date']}})
+          </p>
+          <p *ngIf="choice === 'users'">
+            <img [src]="item.imageUrl" class="imageUrl">
+            {{item['login']}}<{{item['email']}}>
+          </p>
+        </div>
+      </div>
+      <div id="a{{item.id}}" class="collapse hide">
+        <div class="card">
+          <div class="card-body">
+            <div *ngFor="let i of item|modalListPipe">
+              <label>{{i[0]}}</label>
+              <input type="text" class="form-control " [(ngModel)]="item[i[0]]" value="{{i[1]}}">
+            </div>
+          </div>
+          <div class="card-footer">
+            <button class="btn btn-warning w-50 " (click)="onUpdate(item)">Змінити</button>
+            <button class="btn btn-outline-danger  w-50" (click)="onDelete(item.id)">Видалити</button>
+          </div>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>

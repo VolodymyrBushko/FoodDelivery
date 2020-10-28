@@ -1,0 +1,21 @@
+.card {
+  background-color: #C99966;
+  border-radius: 10px;
+  margin-bottom: 5px;
+  padding-bottom: 5px;
+}
+
+
+
+.card-title {
+  text-align: center;
+  font-size: 14px;
+}
+
+.card:hover {
+  background-color: #FF901C;
+}
+
+.card:active {
+  transform: scale(1.1);
+}

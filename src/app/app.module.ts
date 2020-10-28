@@ -22,6 +22,10 @@ import {TokenInterceptor} from './interceptors/token.interceptor';
 import { FeedbackListComponent } from './components/feedback-list/feedback-list.component';
 import { ModalWindowComponent } from './components/modal-window/modal-window.component';
 import { MaxLengthPipe } from './pipes/max-length.pipe';
+import { ItemCardComponent } from './components/item-card/item-card.component';
+import { ControllRadioGroupComponent } from './components/controll-radio-group/controll-radio-group.component';
+import { ModelListComponent } from './components/model-list/model-list.component';
+import { ModalListPipePipe } from './pipes/modal-list-pipe.pipe';
 
 @NgModule({
   declarations: [
@@ -42,6 +46,10 @@ import { MaxLengthPipe } from './pipes/max-length.pipe';
     FeedbackListComponent,
     ModalWindowComponent,
     MaxLengthPipe,
+    ItemCardComponent,
+    ControllRadioGroupComponent,
+    ModelListComponent,
+    ModalListPipePipe,
   ],
   imports: [
     BrowserModule,
