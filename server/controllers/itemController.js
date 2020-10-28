@@ -16,7 +16,7 @@ module.exports = {
   async getItem(req, res) {
     try {
       const {id: _id} = req.params;
-      const item = Item.findOne({_id});
+      const item = await Item.findOne({_id});
       await res.json(item);
     } catch (e) {
       console.log(e);
