@@ -4,6 +4,7 @@ const Schema = mongoose.Schema;
 const schema = new Schema({
   user: {
     type: mongoose.Schema.Types.ObjectID,
+    ref: 'User',
     default: null
   },
   date: {
@@ -25,6 +26,7 @@ const schema = new Schema({
   items: [{
     item: {
       type: mongoose.Schema.Types.ObjectID,
+      ref: 'Item',
       required: true
     },
     quantity: {

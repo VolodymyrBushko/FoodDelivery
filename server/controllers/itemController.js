@@ -5,7 +5,7 @@ module.exports = {
 
   async getItems(req, res) {
     try {
-      const items = await Item.find();
+      const items = await Item.find().populate('category', 'name');
       await res.json(items);
     } catch (e) {
       console.log(e);
@@ -16,7 +16,7 @@ module.exports = {
   async getItem(req, res) {
     try {
       const {id: _id} = req.params;
-      const item = await Item.findOne({_id});
+      const item = await Item.findOne({_id}).populate('category', 'name');
       await res.json(item);
     } catch (e) {
       console.log(e);
