@@ -19,6 +19,10 @@ import {HeaderComponent} from './components/header/header.component';
 import {NavbarComponent} from './components/navbar/navbar.component';
 import {CategoryListComponent} from './components/category-list/category-list.component';
 import {FooterComponent} from './components/footer/footer.component';
+import { BasketListComponent } from './components/basket-list/basket-list.component';
+import { OrderListComponent } from './components/order-list/order-list.component';
+import { InfoComponent } from './components/info/info.component';
+import { PortfolioComponent } from './components/portfolio/portfolio.component';
 import {TokenInterceptor} from './interceptors/token.interceptor';
 import {FeedbackListComponent} from './components/feedback-list/feedback-list.component';
 import {ModalWindowComponent} from './components/modal-window/modal-window.component';
@@ -56,6 +60,10 @@ import {RouterModule} from '@angular/router';
     ModelListComponent,
     ModalListPipePipe,
     MapComponent,
+    BasketListComponent,
+    OrderListComponent,
+    InfoComponent,
+    PortfolioComponent,
   ],
   imports: [
     BrowserModule,

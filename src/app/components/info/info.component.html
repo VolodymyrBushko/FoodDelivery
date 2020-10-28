@@ -1,0 +1,21 @@
+<div class="conteiner" *ngIf="isLeft">
+    <div class="row app">
+      <div class="col-md-4 col-sm-12">
+        <img class="img" [src]="image" alt="">
+      </div>
+      <div class="col-md-8 col-sm-12">
+        <p class="desc">{{description}}</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="conteiner" *ngIf="!isLeft">
+    <div class="row app">
+      <div class="col-md-8 col-sm-12 order-2 order-lg-1">
+        <p class="desc">{{description}}</p>
+      </div>
+      <div class="col-md-4 col-sm-12 order-1 order-lg-2">
+        <img class="img" [src]="image" alt="">
+      </div>
+    </div>
+  </div>

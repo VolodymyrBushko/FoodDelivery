@@ -1,0 +1,29 @@
+.btn {
+    background: linear-gradient(180deg, #FF901C 0%, #FFB362 100%);
+    border-radius: 40px;
+    color: black;
+}
+.avatar {
+    margin-left: 40px;
+    background: #FF901C;
+    border: 3px solid #000000;
+    border-radius: 28px;
+}
+.text-login, .text-email, .text-phone, .text-file {
+    margin: 20px;
+    padding-bottom: 10px;
+    width: 100%;
+    background-color: #FF901C;
+    border-radius: 20px;
+}
+.btn {
+    margin-left: 20px;
+    width: 100%;
+}
+.error-login {
+    width: 100%;
+    margin-left: 10px;
+    border-radius: 20px;
+}
+input.ng-touched.ng-invalid {border:solid red 2.3px;}
+input.ng-touched.ng-valid {border:solid green 2.3px;}

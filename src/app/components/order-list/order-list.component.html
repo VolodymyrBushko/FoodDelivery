@@ -1,0 +1,26 @@
+<div class="bacground">
+    <h5 class="text-center"> Кілткість замовлень: {{orderList.length}}</h5>
+<div *ngFor="let order of orderList" class="sum card  mb-3">
+    <h6 class="card-header text-center"><b>Замовлення № {{order.id}}</b></h6>
+    <div class="user card-header">
+        <b>user name: {{order.user}}</b><br>
+        <b>email: {{order.email}}</b><br>
+        <b>address: {{order.address}}</b>
+    </div>
+    <div class="bodi" >
+        <p class=" items text-center"><b>Items</b></p>
+        <table class="table" *ngFor="let item of order.items">
+            <tbody>
+                <tr>
+                    <td><b class="onItem">{{item.item}} ({{item.quantity}})</b></td>
+                </tr>
+            </tbody>
+        </table> 
+    </div>
+    <div class="test text-right">
+        <b>сума: {{order.totalPrice|currency}}</b><br>
+        <b>дата: {{order.date}}</b>
+    </div>
+  </div>
+</div>
+
