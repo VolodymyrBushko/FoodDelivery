@@ -14,6 +14,7 @@ const schema = new Schema({
   },
   category: {
     type: mongoose.Schema.Types.ObjectID,
+    ref: 'Category',
     required: true
   },
   description: {

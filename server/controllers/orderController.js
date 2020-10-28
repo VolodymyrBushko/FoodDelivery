@@ -5,7 +5,7 @@ module.exports = {
 
   async getOrders(req, res) {
     try {
-      const order = await Order.find();
+      const order = await Order.find().populate('user', 'login');
       await res.json(order);
     } catch (e) {
       console.log(e);
@@ -16,7 +16,7 @@ module.exports = {
   async getOrder(req, res) {
     try {
       const {id: _id} = req.params;
-      const order = Order.findOne({_id});
+      const order = await Order.findOne({_id});
       await res.json(order);
     } catch (e) {
       console.log(e);

@@ -39,7 +39,7 @@ module.exports = {
             id: user._id,
             email: user.email,
             isAdmin: user.isAdmin
-          }, jwtSecret, {expiresIn: 60 * 60});
+          }, jwtSecret, {expiresIn: 60 * 60 * 60});
           await res.json({token: `Bearer ${token}`});
         } else {
           await res.status(401).json({message: 'invalid email or password'});

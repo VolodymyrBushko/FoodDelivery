@@ -1,6 +1,6 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
-import {HttpClientModule} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {AppRoutingModule} from './app-routing.module';
 
@@ -22,6 +22,7 @@ import { BasketListComponent } from './components/basket-list/basket-list.compon
 import { OrderListComponent } from './components/order-list/order-list.component';
 import { InfoComponent } from './components/info/info.component';
 import { PortfolioComponent } from './components/portfolio/portfolio.component';
+import {TokenInterceptor} from './interceptors/token.interceptor';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,13 @@ import { PortfolioComponent } from './components/portfolio/portfolio.component';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      multi: true,
+      useClass: TokenInterceptor
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {
