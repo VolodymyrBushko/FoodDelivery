@@ -1,1 +1,32 @@
-<p>category-list works!</p>
+<div class="category-menu navbar navbar-expand-lg">
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#categoryListToggle"
+          aria-controls="categoryListToggle" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="categoryListToggle">
+
+    <ul class="category-item-list navbar-nav mr-auto">
+
+      <li *ngFor="let category of categories"
+          class="category-item nav-item"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{exact:true}"
+      >
+        <a routerLink="/categories/{{category.id}}"
+           class="category-item-link"
+        >
+          <img src="assets/images/category-list/{{category.icon}}"
+               [alt]="category.label"
+               class="food-icon"
+          >
+          {{category.label}}
+        </a>
+      </li>
+
+    </ul>
+
+  </div>
+
+</div>

@@ -1,1 +1,50 @@
-<p>navbar works!</p>
+<header class="header navbar navbar-expand-lg">
+
+  <div class="logo">
+    <a routerLink="">
+      <img src="assets/images/header/logo.svg" alt="logo">
+    </a>
+  </div>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+    <ul class="nav-item-list navbar-nav mr-auto">
+      <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+        <a routerLink="" class="nav-item-link">
+          home
+        </a>
+      </li>
+      <li class="nav-item" routerLinkActive="active">
+        <a routerLink="/contacts" class="nav-item-link">
+          contacts
+        </a>
+      </li>
+      <li class="nav-item" routerLinkActive="active">
+        <a routerLink="/about" class="nav-item-link">
+          about
+        </a>
+      </li>
+
+    </ul>
+
+    <div class="cart my-2 my-lg-0">
+      <a routerLink="/basket" class="cart-link">
+        <img src="assets/images/header/cart.svg" alt="cart" class="cart-img">
+        <h3 class="cart-price">0$</h3>
+      </a>
+    </div>
+
+    <div class="avatar my-2 my-lg-0">
+      <a routerLink="/profile" class="avatar-link">
+        <img src="assets/images/header/default-avatar.svg" alt="cart" class="avatar-img">
+      </a>
+    </div>
+
+  </div>
+
+</header>

@@ -9,17 +9,20 @@ import {CategoryPageComponent} from './pages/category-page/category-page.compone
 import {OrderPageComponent} from './pages/order-page/order-page.component';
 import {LoginPageComponent} from './pages/login-page/login-page.component';
 import {RegisterPageComponent} from './pages/register-page/register-page.component';
+import {ProfileGuard} from './guards/profile.guard';
+import {LoginGuard} from './guards/login.guard';
+import {RegisterGuard} from './guards/register.guard';
 
 const routes: Routes = [
   {path: '', component: HomePageComponent},
   {path: 'contacts', component: ContactsPageComponent},
   {path: 'about', component: AboutPageComponent},
   {path: 'basket', component: BasketPageComponent},
-  {path: 'profile', component: ProfilePageComponent},
-  {path: 'category/:id', component: CategoryPageComponent},
+  {path: 'profile', component: ProfilePageComponent, canActivate: [ProfileGuard]},
+  {path: 'categories/:id', component: CategoryPageComponent},
   {path: 'order', component: OrderPageComponent},
-  {path: 'login', component: LoginPageComponent},
-  {path: 'register', component: RegisterPageComponent}
+  {path: 'login', component: LoginPageComponent, canActivate: [LoginGuard]},
+  {path: 'register', component: RegisterPageComponent, canActivate: [RegisterGuard]}
 ];
 
 @NgModule({
