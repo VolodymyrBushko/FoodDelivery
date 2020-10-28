@@ -1,52 +1,13 @@
-.category-menu {
-  width: 100%;
-  background-color: #70675F;
-  padding: 0 8rem;
-  display: flex;
-}
-
-.category-item-list {
-  list-style: none;
-  display: flex;
-  align-items: center;
-  margin: 0 0 0 5rem;
-  padding: 10px;
-}
-
-.category-item-list .category-item {
-  margin-right: 3rem;
+li{
   background-color: #FFB362;
-  border-radius: 40px;
-  border: none;
-  padding: 0 10px;
 }
-
-.category-item-list .category-item:hover {
-  background-color: #FF901C;
-}
-
-.category-item-list .category-item:active {
-  transform: scale(1.1);
-}
-
-.active {
-  background-color: #FF901C;
-}
-
-.category-item-list .category-item .category-item-link {
+a {
   text-decoration: none;
-  color: #000000;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 20px;
-  letter-spacing: -0.015em;
-  text-transform: lowercase;
-  display: flex;
-  align-items: center;
-  padding: 3px;
+  color: black;
 }
-
-.food-icon {
-  width: 32px;
-  margin-right: 3px;
+a:hover {
+  text-decoration: none;
+}
+img {
+  width: 20px;
 }

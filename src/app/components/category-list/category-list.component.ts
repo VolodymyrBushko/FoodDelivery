@@ -9,10 +9,10 @@ import * as $ from 'jquery/dist/jquery.min.js';
 export class CategoryListComponent implements OnInit {
 
   categories = [
-    {id: 1, label: 'drink', icon: 'drink.svg'},
-    {id: 2, label: 'pizza', icon: 'pizza.svg'},
-    {id: 3, label: 'sushi', icon: 'sushi.svg'},
-    {id: 4, label: 'dessert', icon: 'dessert.svg'}
+    {id: 1, label: 'напитки', icon: 'drink.svg'},
+    {id: 2, label: 'піца', icon: 'pizza.svg'},
+    {id: 3, label: 'суші', icon: 'sushi.svg'},
+    {id: 4, label: 'десерти', icon: 'dessert.svg'}
   ];
 
   constructor() { }
