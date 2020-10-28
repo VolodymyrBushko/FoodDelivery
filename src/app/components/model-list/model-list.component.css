@@ -1,15 +1,15 @@
 .imageUrl{
   width: 64px;
-
   position: relative;
   box-shadow: 3px 3px 8px -1px #A5A29D;
 }
 .myItem{
-  background-color: #C99966;
+  background-color: #70675F;
+  color:#FFFFFF ;
   border-radius: 2px;
 }
 .myItem:hover{
-  background-color: #70675f;
+  background-color: #C99966;
 }
 .myItem:active{
  transform: scale(1.1);
@@ -19,4 +19,15 @@ ul{
 }
 .openPopup:focus {
   outline: none;
+}
+.card{
+  background-color: #C99966;
+}
+input{
+  background-color: #70675F;
+  color:#FFFFFF ;
+}
+.btn{
+  background-color: #FFB362;
+  box-shadow:none;
 }

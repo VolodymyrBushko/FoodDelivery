@@ -19,20 +19,21 @@
             <img [src]="item.imageUrl" class="imageUrl">
             {{item['login']}}<{{item['email']}}>
           </p>
-
         </div>
       </div>
-
       <div id="a{{item.id}}" class="collapse hide">
-        <div class="card-body">
-          <div *ngFor="let i of item|modalListPipe">
-            <label>{{i[0]}}</label>
-            <input type="text" class="form-control" [(ngModel)]="item[i[0]]" value="{{i[1]}}">
-
+        <div class="card">
+          <div class="card-body">
+            <div *ngFor="let i of item|modalListPipe">
+              <label>{{i[0]}}</label>
+              <input type="text" class="form-control " [(ngModel)]="item[i[0]]" value="{{i[1]}}">
+            </div>
           </div>
-
+          <div class="card-footer">
+            <button class="btn btn-warning w-50 " (click)="onUpdate(item)">Змінити</button>
+            <button class="btn btn-outline-danger  w-50" (click)="onDelete(item.id)">Видалити</button>
+          </div>
         </div>
-        <button class="btn btn-warning" (click)="onUpdate(item)">update</button>
       </div>
     </li>
   </ul>

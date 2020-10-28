@@ -8,5 +8,4 @@ export class ModalListPipePipe implements PipeTransform {
   transform(obj:Object){
     return (Object.entries(obj));
   }
-
 }

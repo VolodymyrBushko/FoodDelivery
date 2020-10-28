@@ -43,6 +43,13 @@ export class ModelListComponent implements OnInit {
       case 'orders': /**/ break;
       case 'users': /**/ break;
     }
-    console.log(obj)
+  }
+  onDelete(id){
+    switch (this.choice) {
+      case 'items': /**/ break;
+      case 'categories': /**/ break;
+      case 'orders': /**/ break;
+      case 'users': /**/ break;
+    }
   }
 }
