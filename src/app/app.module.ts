@@ -10,6 +10,7 @@ import { CardComponent } from './components/card/card.component';
 import { SliderComponent } from './components/slider/slider.component';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
