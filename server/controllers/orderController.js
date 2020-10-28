@@ -5,7 +5,7 @@ module.exports = {
 
   async getOrders(req, res) {
     try {
-      const order = await Order.find().populate('user', 'login');
+      const order = await Order.find().populate('items.item user', 'name login');
       await res.json(order);
     } catch (e) {
       console.log(e);
@@ -16,7 +16,7 @@ module.exports = {
   async getOrder(req, res) {
     try {
       const {id: _id} = req.params;
-      const order = await Order.findOne({_id});
+      const order = await Order.findOne({_id}).populate('items.item user', 'name login');
       await res.json(order);
     } catch (e) {
       console.log(e);
@@ -27,7 +27,7 @@ module.exports = {
   async getOrderByUser(req, res) {
     try {
       const {id: user} = req.params;
-      const orders = await Order.find({user});
+      const orders = await Order.find({user}).populate('items.item user', 'name login');
       await res.json(orders);
     } catch (e) {
       console.log(e);

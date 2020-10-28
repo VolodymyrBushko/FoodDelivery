@@ -4,7 +4,8 @@ const controller = require('../controllers/orderController');
 const validator = require('../validators/orderValidator');
 const router = new Router();
 
-router.get('/', passport.authenticate('jwt', {session: false}), controller.getOrders);
+//passport.authenticate('jwt', {session: false}),
+router.get('/',  controller.getOrders);
 router.get('/:id', passport.authenticate('jwt', {session: false}), controller.getOrder);
 router.get('/users/:id', passport.authenticate('jwt', {session: false}), controller.getOrderByUser);
 router.post('/add', validator, controller.addOrder);
