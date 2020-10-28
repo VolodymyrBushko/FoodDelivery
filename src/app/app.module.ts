@@ -1,23 +1,23 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {HttpClientModule} from '@angular/common/http';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import { AppRoutingModule } from './app-routing.module';
+import { AgmCoreModule } from '@agm/core';
 
 import { AppComponent } from './app.component';
+import { MatCarouselModule } from '@ngmodule/material-carousel';
+import {MapComponent} from './components/map/map.component';
+
+
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
-    FormsModule,
-    ReactiveFormsModule,
-    HttpClientModule
+    MatCarouselModule.forRoot(),
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyANsMUgTON1gtAx6okd1VWPEhmpZb2-3A0'
+    }),
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  declarations: [ AppComponent, MapComponent],
+  bootstrap: [ AppComponent ]
 })
 export class AppModule { }
