@@ -1,0 +1,29 @@
+.root{
+  border-radius: 50px ;
+}
+
+ul{
+  background-color:#FF901C ;
+  padding: 10px;
+  border-radius: 20px ;
+}
+
+li{
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+}
+.elem{
+  background-color:#E09546;
+  margin: 2px 10px;
+}
+.elem>span>*{
+  display:inline-block;
+  margin: auto 15px;
+}
+span{
+  display: flex;
+}
+p{
+ margin: 10px;
+}
