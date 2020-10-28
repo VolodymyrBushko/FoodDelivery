@@ -3,7 +3,7 @@ import {NgModule} from '@angular/core';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {AppRoutingModule} from './app-routing.module';
-import { AgmCoreModule } from '@agm/core';
+import {AgmCoreModule} from '@agm/core';
 
 import {AppComponent} from './app.component';
 import {HomePageComponent} from './pages/home-page/home-page.component';
@@ -20,16 +20,16 @@ import {NavbarComponent} from './components/navbar/navbar.component';
 import {CategoryListComponent} from './components/category-list/category-list.component';
 import {FooterComponent} from './components/footer/footer.component';
 import {TokenInterceptor} from './interceptors/token.interceptor';
-import { FeedbackListComponent } from './components/feedback-list/feedback-list.component';
-import { ModalWindowComponent } from './components/modal-window/modal-window.component';
-import { MaxLengthPipe } from './pipes/max-length.pipe';
-import { ItemCardComponent } from './components/item-card/item-card.component';
-import { ControllRadioGroupComponent } from './components/controll-radio-group/controll-radio-group.component';
-import { ModelListComponent } from './components/model-list/model-list.component';
-import { ModalListPipePipe } from './pipes/modal-list-pipe.pipe';
-import { MatCarouselModule } from '@ngmodule/material-carousel';
+import {FeedbackListComponent} from './components/feedback-list/feedback-list.component';
+import {ModalWindowComponent} from './components/modal-window/modal-window.component';
+import {MaxLengthPipe} from './pipes/max-length.pipe';
+import {ItemCardComponent} from './components/item-card/item-card.component';
+import {ControllRadioGroupComponent} from './components/controll-radio-group/controll-radio-group.component';
+import {ModelListComponent} from './components/model-list/model-list.component';
+import {ModalListPipePipe} from './pipes/modal-list-pipe.pipe';
+import {MatCarouselModule} from '@ngmodule/material-carousel';
 import {MapComponent} from './components/map/map.component';
-
+import {RouterModule} from '@angular/router';
 
 
 @NgModule({
@@ -63,6 +63,11 @@ import {MapComponent} from './components/map/map.component';
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyANsMUgTON1gtAx6okd1VWPEhmpZb2-3A0'
     }),
+    ReactiveFormsModule,
+    RouterModule,
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule
   ],
   providers: [
     {
