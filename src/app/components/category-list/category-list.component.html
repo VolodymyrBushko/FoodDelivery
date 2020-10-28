@@ -1,23 +1,32 @@
-<div class="category-menu">
+<div class="category-menu navbar navbar-expand-lg">
 
-  <ul class="category-item-list mr-auto">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#categoryListToggle"
+          aria-controls="categoryListToggle" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
-    <li *ngFor="let category of categories"
-        class="category-item"
-        routerLinkActive="active"
-        [routerLinkActiveOptions]="{exact:true}"
-    >
-      <a routerLink="/categories/{{category.id}}"
-         class="category-item-link"
+  <div class="collapse navbar-collapse" id="categoryListToggle">
+
+    <ul class="category-item-list navbar-nav mr-auto">
+
+      <li *ngFor="let category of categories"
+          class="category-item nav-item"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{exact:true}"
       >
-        <img src="assets/images/category-list/{{category.icon}}"
-             [alt]="category.label"
-             class="food-icon"
+        <a routerLink="/categories/{{category.id}}"
+           class="category-item-link"
         >
-        {{category.label}}
-      </a>
-    </li>
+          <img src="assets/images/category-list/{{category.icon}}"
+               [alt]="category.label"
+               class="food-icon"
+          >
+          {{category.label}}
+        </a>
+      </li>
 
-  </ul>
+    </ul>
+
+  </div>
 
 </div>

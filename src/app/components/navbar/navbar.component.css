@@ -17,11 +17,13 @@
 }
 
 .nav-item-list .nav-item {
-  margin-right: 3rem;
+  margin: 3px 3rem 3px 0;
   background-color: #FFB362;
   border-radius: 40px;
   border: none;
   padding: 0 10px;
+  width: 100px;
+  text-align: center;
 }
 
 .nav-item-list .nav-item .nav-item-link {
@@ -54,7 +56,9 @@
   background-color: #FFB362;
   display: inline-block;
   padding: 0 15px;
-  border-radius: 40px
+  border-radius: 40px;
+  width: 120px;
+  text-align: center;
 }
 
 .cart .cart-price {
