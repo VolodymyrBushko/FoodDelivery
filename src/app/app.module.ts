@@ -43,7 +43,7 @@ import { SliderComponent } from './components/slider/slider.component';
 @NgModule({
   declarations: [
     CardComponent,
-    SliderComponent
+    SliderComponent,
     AppComponent,
     HomePageComponent,
     ContactsPageComponent,
