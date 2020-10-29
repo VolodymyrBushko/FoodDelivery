@@ -1,0 +1,18 @@
+.container-fluid{
+  background-color: #FF901C;
+  border-radius: 10px;
+}
+.btn{
+  background-color: #C99966;
+  border-radius: 20px;
+  box-shadow:none;
+}
+.btn:hover{
+  background-color: #C99966;
+}
+.btn:active{
+  transform: scale(1.1);
+}
+.h2{
+
+}
