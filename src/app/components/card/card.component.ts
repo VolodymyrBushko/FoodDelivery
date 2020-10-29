@@ -14,6 +14,7 @@ export class CardComponent implements OnInit {
   @Input() imgPath;
   @Input() txtCard;
 
+  txtCard = 'SOME TEXT';
 
   constructor() { }
 
