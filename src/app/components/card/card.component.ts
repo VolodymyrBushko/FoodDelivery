@@ -8,13 +8,8 @@ import { Input,Component, OnInit  } from '@angular/core';
 
 export class CardComponent implements OnInit {
 
-  //imgPath = '../../../assets/images/pic1.jpg';
-  // txtCard = 'SOME TEXT';
-  
   @Input() imgPath;
   @Input() txtCard;
-
-  txtCard = 'SOME TEXT';
 
   constructor() { }
 
