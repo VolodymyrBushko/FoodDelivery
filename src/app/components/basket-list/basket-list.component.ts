@@ -8,13 +8,15 @@ import { Component, OnInit } from '@angular/core';
 
 export class BasketListComponent implements OnInit {
 
+  constructor() { }
+
   cartItems = [
     {
       id: 1,
       image: "../../../assets/basket/orange_juice.jpg",
       name: "name",
       weight: "0.0g",
-      price: 0,
+      price: 50,
       number: 0
     },
     {
@@ -22,7 +24,7 @@ export class BasketListComponent implements OnInit {
       image: "../../../assets/basket/orange_juice.jpg",
       name: "name",
       weight: "0.0g",
-      price: 0,
+      price: 100,
       number: 0
     },
     {
@@ -30,15 +32,49 @@ export class BasketListComponent implements OnInit {
       image: "../../../assets/basket/orange_juice.jpg",
       name: "name",
       weight: "0.0g",
-      price: 0,
+      price: 150,
       number: 0
     }
   ];
 
-  totalPrice:number = 0;
+  totalPrice: number=0;
+  newArray=[];
 
-  constructor() { }
+
 
   ngOnInit(): void {
+
+    localStorage.setItem('cart', JSON.stringify(this.cartItems));
+
+    this.sumTotalPrice();
   }
+
+
+  sumTotalPrice() {
+
+    this.newArray =  JSON.parse( localStorage.getItem('cart'));
+
+    this.newArray.forEach(element => {
+      this.totalPrice  += element['price'];
+    });
+
+    console.log('TOTAL', this.totalPrice);
+    console.log( "ID ", JSON.parse( localStorage.getItem('id')));
+  }
+
+  id: Number = 0;
+
+  addItem(){
+
+    this.newArray =  JSON.parse( localStorage.getItem('cart'));
+    this.newArray.forEach(element => {
+      this.id += element['id'];
+    });
+
+    console.log('ID', this.id);
+  }
+
 }
+
+
+
