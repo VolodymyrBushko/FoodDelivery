@@ -20,7 +20,7 @@ export class UserService {
     return this.http.get(`${this._baseUrl}/${id}`);
   }
 
-  updateUserById(user: User, id: string) {
+  updateUserById(user, id: string) {
     return this.http.put(`${this._baseUrl}/update/${id}`, user);
   }
 

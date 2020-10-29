@@ -1,0 +1,25 @@
+POST http://localhost:5000/api/orders/add
+Content-Type: application/json
+
+{
+  "user": "5f9ab7c3e8974616bc09182d",
+  "email": "react@gmail.com",
+  "address": "lviv",
+  "totalPrice": 300,
+  "items": [
+    {
+      "item": "5f9a7789c23e34134458dc82",
+      "quantity": 1
+    },
+    {
+      "item": "5f9a77d3c23e34134458dc83",
+      "quantity": 3
+    },
+    {
+      "item": "5f9a772fc23e34134458dc81",
+      "quantity": 7
+    }
+  ]
+}
+
+###

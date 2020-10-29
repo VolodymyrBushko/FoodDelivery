@@ -1,1 +1,27 @@
-<p>profile-page works!</p>
+<div class="container-fluid">
+  <div class="row d-flex justify-content-center">
+    <div class="col d-flex justify-content-center">
+
+      <app-portfolio></app-portfolio>
+
+    </div>
+  </div>
+  <div class="row my-5 d-flex justify-content-center">
+    <div class="col-10">
+
+      <div *ngIf="!token['isAdmin']">
+        <app-order-list></app-order-list>
+      </div>
+      <div *ngIf="token['isAdmin']">
+
+        <div style="margin-bottom: 60px">
+          <app-controll-radio-group (onChanged)="onChange($event)"></app-controll-radio-group>
+        </div>
+
+        <app-model-list [setChoice]="choice"></app-model-list>
+
+      </div>
+
+    </div>
+  </div>
+</div>

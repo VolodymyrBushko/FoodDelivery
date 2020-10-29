@@ -20,6 +20,10 @@ export class ItemService {
     return this.http.get(`${this._baseUrl}/${id}`);
   }
 
+  getItemByCategoryId(id: string) {
+    return this.http.get(`${this._baseUrl}/categories/${id}`);
+  }
+
   addItem(item: Item) {
     return this.http.post(`${this._baseUrl}/add`, item);
   }

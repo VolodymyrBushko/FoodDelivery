@@ -6,6 +6,7 @@ const router = new Router();
 
 router.get('/', controller.getItems);
 router.get('/:id', controller.getItem);
+router.get('/categories/:id', controller.getItemByCategoryId);
 router.post('/add', [passport.authenticate('jwt', {session: false}), validator], controller.addItem);
 router.delete('/:id', passport.authenticate('jwt', {session: false}), controller.deleteItem);
 router.put('/:id', [passport.authenticate('jwt', {session: false}), validator], controller.updateItem);

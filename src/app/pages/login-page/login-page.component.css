@@ -22,7 +22,7 @@
 }
 
 .title {
-  color: #000000;
+  color: #70675F;
   font-weight: 600;
 }
 
@@ -58,4 +58,15 @@ input.ng-touched.ng-valid {
 }
 .login a:hover{
   color:#723dbe;
+}
+
+.register-link {
+  text-decoration: none;
+  color: #70675F;
+}
+.register-link h3 {
+  font-weight: 600;
+}
+.register-link:hover {
+  text-decoration: none;
 }

@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute} from '@angular/router';
 import * as $ from 'jquery/dist/jquery.min.js';
+import {CategoryService} from '../../services/category.service';
+import Category from '../../interfaces/Category';
 
 @Component({
   selector: 'app-category-list',
@@ -8,16 +11,19 @@ import * as $ from 'jquery/dist/jquery.min.js';
 })
 export class CategoryListComponent implements OnInit {
 
-  categories = [
-    {id: 1, label: 'напитки', icon: 'drink.svg'},
-    {id: 2, label: 'піца', icon: 'pizza.svg'},
-    {id: 3, label: 'суші', icon: 'sushi.svg'},
-    {id: 4, label: 'десерти', icon: 'dessert.svg'}
-  ];
+  categories: Category[] = [];
 
-  constructor() { }
+  constructor(
+    private categoryService: CategoryService,
+  ) {
+  }
 
   ngOnInit(): void {
+    this.categoryService.getCategories()
+      .subscribe(
+        (data: Category[]) => this.categories = data,
+        err => console.log(err.message || err)
+      );
   }
 
 }

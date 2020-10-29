@@ -21,7 +21,7 @@ const schema = new Schema({
     type: String,
     required: true,
     minlength: 6,
-    maxlength: 36
+    maxlength: 200
   },
   imageUrl: {
     type: String,
