@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, RouterLinkActive } from '@angular/router';
-import * as $ from 'jquery/dist/jquery.min.js';
+import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute} from '@angular/router';
 
+import * as $ from 'jquery/dist/jquery.min.js';
+import Item from '../../interfaces/Item';
+import {ItemService} from '../../services/item.service';
 
 
 @Component({
@@ -11,28 +13,34 @@ import * as $ from 'jquery/dist/jquery.min.js';
 })
 
 
-
 export class ModalWindowComponent implements OnInit {
 
-  good = {
-    title:"Сік апельсиновий",
-    price:20,
-    weight:200,
-    category:"drinks",
-    path:"../../../assets/images/card/orangeJuce.svg",
-    description:"Апельсиновий сік — напій, виготовлений з апельсинів. Апельсиновий сік відомий своєю користю для здоров'я, зокрема, через високий вміст вітаміну C. Сік із різних сортів апельсину має різний колір та смак."
-  }
+  item: Item =
+    {_id: '', name: '', price: 0, category: '', description: '', imageUrl: '', weight: 0};
 
-  constructor(private activatedRoute: ActivatedRoute) { }
+  constructor(
+    private activatedRoute: ActivatedRoute,
+    private itemService: ItemService
+  ) {
+  }
 
   ngOnInit(): void {
     this.activatedRoute.queryParams.subscribe(params => {
       const itemId = params['itemId'];
-      console.log(itemId);
+      if (itemId) {
+        this.itemService.getItemById(itemId)
+          .subscribe(
+            (data: Item) => this.item = data,
+            err => console.log(err.message || err)
+          );
+      }
     });
   }
 
-  addToBascket(){
+  addToCart(item: Item) {
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    cart.push(item);
+    localStorage.setItem('cart', JSON.stringify(cart));
   }
 
 }

@@ -13,28 +13,33 @@
         <button type="button" class="close-znak close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">×</span>
         </button>
-        <h3 class=text-center>{{good.title}}</h3>
+        <h3 class=text-center>{{item.name}}</h3>
 
         <div class="container">
           <div class='row'>
             <div class="col-5 d-flex align-items-center">
-              <img [src]="good.path" alt="назва товару" class="image">
+              <img [src]="item.imageUrl" alt="назва товару" class="image">
             </div>
             <div class="col-7">
 
               <ul class="fields-list">
-                <li><strong>weight:</strong>&nbsp;{{good.weight}}</li>
-                <li><strong>price:</strong>&nbsp;{{good.price}}</li>
-                <li><strong>category:</strong>&nbsp;{{good.category}}</li>
-                <li><hr/></li>
-                <li>{{good.description|maxLength}}</li>
+                <li><strong>weight:</strong>&nbsp;{{item.weight}}</li>
+                <li><strong>price:</strong>&nbsp;{{item.price}}</li>
+                <li><strong>category:</strong>&nbsp;{{item.category['name']}}</li>
+                <li>
+                  <hr/>
+                </li>
+                <li>{{item.description|maxLength}}</li>
               </ul>
             </div>
           </div>
         </div>
       </div>
       <div class="modal-footer m-0 d-flex justify-content-center">
-            <button type="button" class="btn d-block mybtn">в корзину</button>
+        <button
+          type="button" class="btn d-block mybtn" data-dismiss="modal" aria-label="Close"
+          (click)="addToCart(item)"
+        >в корзину</button>
       </div>
     </div>
   </div>

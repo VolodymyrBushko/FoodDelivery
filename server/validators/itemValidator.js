@@ -25,7 +25,7 @@ module.exports = [
     .trim()
     .notEmpty()
     .isString()
-    .isLength({min: 6, max: 36})
+    .isLength({min: 6, max: 200})
     .withMessage('invalid description'),
 
   body('imageUrl')

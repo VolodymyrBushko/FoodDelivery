@@ -1,1 +1,12 @@
-<p>category-page works!</p>
+<div class="container">
+  <div class="row d-flex justify-content-center">
+
+    <div
+      class="col-12 col-md-6 col-lg-4 my-3 d-flex justify-content-center"
+      *ngFor="let item of items"
+    >
+      <app-item-card [item]="item"></app-item-card>
+    </div>
+
+  </div>
+</div>

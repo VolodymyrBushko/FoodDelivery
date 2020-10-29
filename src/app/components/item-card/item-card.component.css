@@ -1,17 +1,28 @@
-.itemCard{
+.itemCard {
   background-color: #C99966;
   width: 16rem;
   border-radius: 10px;
+}
 
-}
-.title{
+.title {
   text-align: center;
+  padding: 10px;
+  margin: 0;
 }
-.price{
+
+.price {
   text-align: center;
   width: auto;
   height: 20px;
   border-radius: 10px;
   background-color: #FFB362;
-  margin-bottom:5px;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+a:hover {
+  text-decoration: none;
 }
