@@ -1,6 +1,5 @@
 .app{
     background-color: #E09546;
-    padding: 20px;
     border-radius: 20px;
 }
 .desc {
@@ -9,4 +8,5 @@
 .img {
     margin: auto;
     border-radius: 30px;
+    width: 220px;
 }

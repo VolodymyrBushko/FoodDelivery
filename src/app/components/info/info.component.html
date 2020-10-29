@@ -1,20 +1,20 @@
 <div class="conteiner" *ngIf="isLeft">
-    <div class="row app">
-      <div class="col-md-4 col-sm-12">
+    <div class="row app p-2">
+      <div class="col-md-5 col-sm-12 d-flex justify-content-center">
         <img class="img" [src]="image" alt="">
       </div>
-      <div class="col-md-8 col-sm-12">
+      <div class="col-md-7 col-sm-12 d-flex align-items-center">
         <p class="desc">{{description}}</p>
       </div>
     </div>
   </div>
 
   <div class="conteiner" *ngIf="!isLeft">
-    <div class="row app">
-      <div class="col-md-8 col-sm-12 order-2 order-lg-1">
+    <div class="row app p-2">
+      <div class="col-md-7 col-sm-12 order-2 order-lg-1 d-flex align-items-center">
         <p class="desc">{{description}}</p>
       </div>
-      <div class="col-md-4 col-sm-12 order-1 order-lg-2">
+      <div class="col-md-5 col-sm-12 order-1 order-lg-2 d-flex justify-content-center">
         <img class="img" [src]="image" alt="">
       </div>
     </div>
