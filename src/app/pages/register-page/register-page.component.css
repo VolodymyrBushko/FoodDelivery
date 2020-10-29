@@ -2,27 +2,27 @@
   border-radius: 20px !important;
   padding: 20px !important;
   background-color: #70675F;
-  color: #F6AF62;
+    color: #F6AF62;
   font-weight: 600;
-  border: solid #70675F 3px;
+  border: solid #A5A29D 3px;
 }
 
 .form-group .form-control::placeholder {
-  color: #F6AF62;
+  color: #000000;
   font-weight: 600;
 }
 
 .form-group .submit {
   border-radius: 20px !important;
   background-color: #70675F;
-  color: #F6AF62;
+  color: #000000;
   border: none !important;
   font-weight: 600;
   padding: 10px 20px;
 }
 
 .title {
-  color: #F6AF62;
+  color: #000000;
   font-weight: 600;
 }
 
@@ -32,4 +32,10 @@ input.ng-touched.ng-invalid {
 
 input.ng-touched.ng-valid {
   border: solid green 3px !important;
+}
+
+
+.register-container{
+  height: 100vh;
+  width: 100%;
 }
