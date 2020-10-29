@@ -1,5 +1,5 @@
 .card {
-  background-color: #C99966;
+  background-color: #FF901C;
   border-radius: 10px;
   margin-bottom: 5px;
   padding-bottom: 5px;
@@ -13,7 +13,7 @@
 }
 
 .card:hover {
-  background-color: #FF901C;
+  background-color: #C99966;
 }
 
 .card:active {

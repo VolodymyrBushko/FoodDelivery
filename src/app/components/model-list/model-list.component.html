@@ -1,32 +1,34 @@
 <div class="container">
   <ul>
     <li *ngFor="let item of array">
-      <div class="" data-toggle="collapse" [attr.data-target]="'#a' + item.id"
+      <div class="" data-toggle="collapse" [attr.data-target]="'#a' + item._id"
            aria-expanded="true">
         <div class="myItem">
-          <p *ngIf="choice === 'items'">
+          <p *ngIf="choice.getValue() === 'items'">
             <img [src]="item.imageUrl" class="imageUrl">
-            {{item['name']}}({{item['category']}})
+            {{item['name']}}({{item['category']['name']}})
           </p>
-          <p *ngIf="choice === 'categories'">
+          <p *ngIf="choice.getValue() === 'categories'">
             <img [src]="item.imageUrl" class="imageUrl">
             {{item['name']}}
           </p>
-          <p *ngIf="choice === 'orders'">
-            {{item['user']}}<{{item['email']}}>({{item['date']}})
+          <p *ngIf="choice.getValue() === 'orders'">
+            {{item['email']}}({{item['date']}})
           </p>
-          <p *ngIf="choice === 'users'">
+          <p *ngIf="choice.getValue() === 'users'">
             <img [src]="item.imageUrl" class="imageUrl">
             {{item['login']}}<{{item['email']}}>
           </p>
         </div>
       </div>
-      <div id="a{{item.id}}" class="collapse hide">
+      <div id="a{{item._id}}" class="collapse hide">
         <div class="card">
           <div class="card-body">
             <div *ngFor="let i of item|modalListPipe">
-              <label>{{i[0]}}</label>
-              <input type="text" class="form-control " [(ngModel)]="item[i[0]]" value="{{i[1]}}">
+              <div *ngIf="i[0] !== 'category' && i[0] !== '_id' && i[0] !== '__v' && i[0] !== 'password' && i[0] !== 'isAdmin'">
+                <label>{{i[0]}}</label>
+                <input type="text" class="form-control " [(ngModel)]="item[i[0]]" value="{{i[1]}}">
+              </div>
             </div>
           </div>
           <div class="card-footer">

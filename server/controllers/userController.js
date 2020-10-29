@@ -30,13 +30,12 @@ module.exports = {
 
   async loginUser(req, res) {
     try {
-
       const user = await User.findOne({email: req.body.email});
       if (user) {
         const passwordResult = await bcrypt.compare(req.body.password, user.password);
         if (passwordResult) {
           const token = jwt.sign({
-            id: user._id,
+            _id: user._id,
             email: user.email,
             isAdmin: user.isAdmin
           }, jwtSecret, {expiresIn: 60 * 60 * 60});
@@ -75,13 +74,12 @@ module.exports = {
 
   async updateUserById(req, res) {
     try {
-
-      const errors = validationResult(req);
-      if (!errors.isEmpty())
-        return res.status(422).json({message: errors.array()[0].msg});
-
       const {id} = req.params;
-      const user = await User.findByIdAndUpdate(id, req.body);
+      const user = await User.findById(id);
+      user.login = req.body.login;
+      user.phone = req.body.phone;
+      user.imageUrl = req.body.imageUrl;
+      await user.save();
       await res.json(user);
     } catch (e) {
       console.log(e);

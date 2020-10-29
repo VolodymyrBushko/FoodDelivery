@@ -1,5 +1,11 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {Component, OnInit} from '@angular/core';
+import {FormBuilder, FormGroup} from '@angular/forms';
+
+import validator from '../../validators/portfolio.validator';
+import parseJwt from '../../utils/parseJwt';
+import {UserService} from '../../services/user.service';
+import {AuthService} from '../../services/auth.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-portfolio',
@@ -7,27 +13,39 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./portfolio.component.css']
 })
 export class PortfolioComponent implements OnInit {
-  userList= [
-    {
-      id: 1,
-      login: 'user1',
-      email: 'user@gmail.com',
-      password: '1234',
-      phone: '+380 000 000 0000',
-      imageUrl: '../../../assets/portfolio/no-avatar.svg',
-      file: 'name file',
-      isAdmin: false
-    }
-  ]
-  myForm : FormGroup;
-  constructor(private formBuilder: FormBuilder) { 
-    this.myForm = formBuilder.group({
-      "login": ["", [Validators.required]],
-      "email": ["", [ Validators.required, Validators.email]],
-      "phone": ["", [Validators.required]],
-      "file": ["", [Validators.required]]
+
+  form: FormGroup;
+  token;
+
+  constructor(
+    private formBuilder: FormBuilder,
+    private userService: UserService,
+    private authService: AuthService,
+    private router: Router
+  ) {
+    this.token = parseJwt(localStorage.getItem('token'));
+  }
+
+  async ngOnInit() {
+
+    const {_id} = this.token;
+    const user = await this.userService.getUserById(_id).toPromise();
+
+    this.form = this.formBuilder.group({
+      'login': [user['login'], validator.login],
+      'email': [user['email'], validator.email],
+      'phone': [user['phone'], validator.phone],
+      'imageUrl': [user['imageUrl'], validator.imageUrl]
     });
   }
-  ngOnInit(): void {
+
+  async onUpdate() {
+    if (this.form.valid) {
+      const {_id} = this.token;
+      await this.userService.updateUserById(this.form.value, _id).toPromise();
+      this.authService.logout();
+      await this.router.navigate(['/']);
+    }
   }
+
 }

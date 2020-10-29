@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import parseJwt from '../../utils/parseJwt';
 
 @Component({
   selector: 'app-profile-page',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfilePageComponent implements OnInit {
 
-  constructor() { }
+  token;
+  choice: string = 'items';
+
+  constructor() {
+    this.token = parseJwt(localStorage.getItem('token'));
+  }
 
   ngOnInit(): void {
+  }
+
+  onChange(choice) {
+    this.choice = choice;
   }
 
 }

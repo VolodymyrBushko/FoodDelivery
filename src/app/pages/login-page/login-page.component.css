@@ -22,7 +22,7 @@
 }
 
 .title {
-  color: #F6AF62;
+  color: #70675F;
   font-weight: 600;
 }
 
@@ -32,4 +32,15 @@ input.ng-touched.ng-invalid {
 
 input.ng-touched.ng-valid {
   border: solid green 3px !important;
+}
+
+.register-link {
+  text-decoration: none;
+  color: #70675F;
+}
+.register-link h3 {
+  font-weight: 600;
+}
+.register-link:hover {
+  text-decoration: none;
 }

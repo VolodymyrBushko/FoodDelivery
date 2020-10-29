@@ -1,10 +1,25 @@
-GET http://localhost:5000/api/items/categories/5f9a75384f606e034cafc3c7
-Accept: application/json
+POST http://localhost:5000/api/orders/add
+Content-Type: application/json
 
-###
-POST http://localhost:5000/api/items/add
-Content-Type: application/x-www-form-urlencoded
-
-name=Піца Папероні&price=150&category=5f9a75384f606e034cafc3c7&description=Папероні, моцарелла, помідор, болгарський перець, соус пелаті або соус вершковий&imageUrl=https://kvadratsushi.com/wp-content/uploads/2018/06/paperoninews.png&weight=900
+{
+  "user": "5f9ab7c3e8974616bc09182d",
+  "email": "react@gmail.com",
+  "address": "lviv",
+  "totalPrice": 300,
+  "items": [
+    {
+      "item": "5f9a7789c23e34134458dc82",
+      "quantity": 1
+    },
+    {
+      "item": "5f9a77d3c23e34134458dc83",
+      "quantity": 3
+    },
+    {
+      "item": "5f9a772fc23e34134458dc81",
+      "quantity": 7
+    }
+  ]
+}
 
 ###
