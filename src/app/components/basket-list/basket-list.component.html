@@ -1,30 +1,36 @@
-
-        <div class="table-responsive-sm">
-            <table class="table">
-              <thead>
-                <th>image</th>
-                <th>name</th>
-                <th>weight</th>
-                <th>price</th>
-                <th>number</th>
-                <th></th>
-              </thead>
-                <tbody>
-                  <tr *ngFor="let item of cartItems">
-                    <td><img [src]="item.image" alt="item" width="60"></td>
-                    <td>{{item.name}}</td>
-                    <td>{{item.weight}}</td>
-                    <td>{{item.price|currency}}</td>
-                    <td>{{item.number}}</td>
-                    <td class="">
-                      <div class="btn-group" role="group" aria-label="Basic example">
-                        <button id="add" type="button" (click)="addItem()" class="btn btn-success d-flex justify-content-start">+</button>
-                        <button id="sub" type="button" class="btn btn-warning d-flex justify-content-center">-</button>
-                        <button id="del" type="button" class="btn btn-danger d-flex justify-content-end">del</button>
-                      </div>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-              <button id="btn" class="btn btn-warning float-right">Купити ({{totalPrice|currency}})</button>
+<div class="table-responsive-sm">
+  <table class="table">
+    <thead>
+    <th>image</th>
+    <th>name</th>
+    <th>weight</th>
+    <th>price</th>
+    <th>quantity</th>
+    <th></th>
+    </thead>
+    <tbody>
+    <tr *ngFor="let item of cart.getValue()">
+      <td><img [src]="item.imageUrl" alt="item" width="60"></td>
+      <td>{{item.name}}</td>
+      <td>{{item.weight}}</td>
+      <td>{{item.price|currency}}</td>
+      <td>{{item.quantity}}</td>
+      <td>
+        <div class="btn-group" role="group" aria-label="Basic example">
+          <button (click)="quantityOperation(item._id, true)" id="add" type="button"
+                  class="btn btn-success d-flex justify-content-start">+
+          </button>
+          <button (click)="quantityOperation(item._id, false)" id="sub" type="button"
+                  class="btn btn-warning d-flex justify-content-center">-
+          </button>
+          <button (click)="deleteItem(item._id)" id="del" type="button"
+                  class="btn btn-danger d-flex justify-content-end">
+            del
+          </button>
         </div>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+  <button id="btn" class="btn btn-warning float-right">Купити ({{totalPrice|currency}})</button>
+</div>

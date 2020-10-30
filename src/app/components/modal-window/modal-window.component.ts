@@ -15,8 +15,7 @@ import {ItemService} from '../../services/item.service';
 
 export class ModalWindowComponent implements OnInit {
 
-  item: Item =
-    {_id: '', name: '', price: 0, category: '', description: '', imageUrl: '', weight: 0};
+  item: Item = null;
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -37,9 +36,23 @@ export class ModalWindowComponent implements OnInit {
     });
   }
 
-  addToCart(item: Item) {
-    const cart = JSON.parse(localStorage.getItem('cart')) || [];
-    cart.push(item);
+  addToCart(newItem) {
+
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const index = cart.findIndex(({_id}) => _id === newItem._id);
+    const item = cart.slice(index, index + 1)[0];
+
+    if (item) {
+      +item['quantity']++;
+      cart = [
+        ...cart.slice(0, index),
+        item,
+        ...cart.slice(index + 1)
+      ];
+    } else {
+      newItem.quantity = 1;
+      cart.unshift(newItem);
+    }
     localStorage.setItem('cart', JSON.stringify(cart));
   }
 
