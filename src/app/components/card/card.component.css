@@ -1,18 +1,25 @@
 .contCard
 {
-  background-color: sandybrown;
+  background: rgb(224,149,70);
+  background: linear-gradient(0deg, rgba(224,149,70,1) 34%, rgba(253,187,45,1) 77%);
+  border-radius: 30px;
+  margin-bottom: 10px;
+  box-shadow: 0 20px 20px rgb(90, 42, 4);
+  height: 300px;
 }
 
 .imgCard
 {
-  border-radius: 15px;
-  padding: 5px;
+  border-radius: 20px;
+  padding: 10px;
 }
 
 
 .txtCard
 {
   text-align: center;
-  font-size: 15px;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  text-transform: uppercase;
+  text-shadow: 2px 2px 5px #5a3003;
+  font-size: 15pt;
+  font: 15pt icon; 
 }

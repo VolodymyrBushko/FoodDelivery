@@ -3,7 +3,7 @@
   <a routerLink="/categories/{{item.category['_id']}}"
      [queryParams]="{'itemId':item['_id']}" data-toggle="modal" data-target="#basicModal">
 
-    <div class="card " style="width: 14rem;">
+    <div class="card">
       <img [src]="item.imageUrl" [alt]="item.name" class="btn" height="200">
     </div>
     <h2 class="card-title title">
