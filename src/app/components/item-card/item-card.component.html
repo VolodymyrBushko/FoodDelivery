@@ -1,6 +1,6 @@
 <div class="itemCard p-3">
 
-  <a routerLink="/categories/{{item.category['_id']}}"
+  <a [routerLink]="route"
      [queryParams]="{'itemId':item['_id']}" data-toggle="modal" data-target="#basicModal">
 
     <div class="card " style="width: 14rem;">
