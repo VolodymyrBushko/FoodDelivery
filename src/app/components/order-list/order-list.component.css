@@ -1,16 +1,28 @@
-h6 {
-  background-color: #E09546;
+.background {
+  background-image: url(../../../assets/images/card/background-image.jpg);
+}
+
+h5 {
+  color: #E3A058;
+  text-shadow: 2px 2px 5px #000000;
+  font-size: 15pt;
+  font: 15pt icon; 
+}
+
+h3 {
+  text-shadow: 2px 2px 5px #5a3003;
+  font-size: 15pt;
+  font: 15pt icon; 
 }
 
 .test {
-  background-color: #E09546;
+  background: rgb(253,187,45);
+  background: linear-gradient(0deg, rgba(253,187,45,1) 0%, rgba(191,166,140,1) 100%);
   padding: 10px;
+  text-shadow: 2px 2px 5px #5a3003;
+  font-size: 15pt;
+  font: 15pt icon; 
 }
-
-table {
-  background-color: #E09546;
-}
-
 .bacground {
   background-color: #70675F;
   padding-bottom: 10px;
@@ -20,11 +32,11 @@ table {
 .sum {
   margin: auto;
   width: 80%;
-  background: #FF901C;
-}
-
-h5 {
-  color: #E3A058;
+  background: rgb(253,187,45);
+  background: linear-gradient(0deg, rgba(253,187,45,1) 0%, rgba(191,166,140,1) 100%);
+  text-shadow: 2px 2px 5px #5a3003;
+  font-size: 15pt;
+  font: 15pt icon; 
 }
 
 .items {
@@ -32,17 +44,7 @@ h5 {
 }
 
 td {
-  padding: 0;
   margin-left: 5px;
-}
-
-h5 {
-  padding-top: 5px;
-}
-
-.card {
-  background-color: #FF901C;
-
 }
 
 .onItem {
@@ -51,6 +53,4 @@ h5 {
 
 ul {
   list-style: none;
-  margin: 0;
-  padding: 5px;
 }

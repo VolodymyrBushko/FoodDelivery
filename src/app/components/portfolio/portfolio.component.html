@@ -1,6 +1,6 @@
 <div class="container-fluid">
-  <div class="row">
-    <div>
+  <div class="row d-flex justify-content-center p-5">
+    <div class="header">
       <div class="avatar">
         <img class="img"
              [src]=" form && form.value['imageUrl'] ? form.value['imageUrl'] : '../../assets/portfolio/no-avatar.svg'"
@@ -11,7 +11,7 @@
       </div>
     </div>
 
-    <div>
+    <div class="btn-boks">
       <form [formGroup]="form" novalidate *ngIf="form">
         <div>
           <input class="text-login text-center form-control"

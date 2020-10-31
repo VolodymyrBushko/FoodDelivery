@@ -18,7 +18,7 @@ export class BasketListComponent implements OnInit, OnDestroy {
     this.sub = this.cart.subscribe(
       () => this.updateTotalPrice(),
       err => console.log(err.message || err)
-    );
+    );  
   }
 
   quantityOperation(itemId: string, increment: boolean): void {

@@ -2,3 +2,8 @@ agm-map {
   height: 400px;
   width: 100%;
 }
+
+.background {
+  border-radius: 30px;
+  background-image: url(../../../assets/images/card/background-image.jpg);
+}
