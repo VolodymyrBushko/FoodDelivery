@@ -9,7 +9,13 @@
 li {
   text-align: center;
   width: 100px;
-  background-color: #FFB362;
+  background: rgb(253,187,45);
+  background: linear-gradient(0deg, rgba(253,187,45,1) 0%, rgba(191,166,140,1) 100%);
+}
+li:active {
+  background: rgb(253,187,45);
+  background: linear-gradient(0deg, rgba(253,187,45,1) 0%, rgba(191,166,140,1) 100%);
+  transform: scale(1.1);
 }
 .cart {
   background-color: #FFB362;
