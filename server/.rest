@@ -1,3 +1,16 @@
+DELETE http://localhost:5000/api/feedback/delete/5f9db98e0bd0d86518ca4ad5
+Content-Type: application/x-www-form-urlencoded
+###
+GET http://localhost:5000/api/feedback
+Accept: application/json
+
+###
+POST http://localhost:5000/api/feedback/add
+Content-Type: application/x-www-form-urlencoded
+
+imageUrl=https://bootstrap-4.ru/&post=hello world
+
+###
 POST http://localhost:5000/api/orders/add
 Content-Type: application/json
 
