@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, OnDestroy} from '@angular/core';
+import {BehaviorSubject, Subscription} from 'rxjs';
 
 @Component({
   selector: 'app-basket-list',
@@ -6,75 +7,50 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./basket-list.component.css']
 })
 
-export class BasketListComponent implements OnInit {
+export class BasketListComponent implements OnInit, OnDestroy {
 
-  constructor() { }
-
-  cartItems = [
-    {
-      id: 1,
-      image: "../../../assets/basket/orange_juice.jpg",
-      name: "name",
-      weight: "0.0g",
-      price: 50,
-      number: 0
-    },
-    {
-      id: 2,
-      image: "../../../assets/basket/orange_juice.jpg",
-      name: "name",
-      weight: "0.0g",
-      price: 100,
-      number: 0
-    },
-    {
-      id: 3,
-      image: "../../../assets/basket/orange_juice.jpg",
-      name: "name",
-      weight: "0.0g",
-      price: 150,
-      number: 0
-    }
-  ];
-
-  totalPrice: number=0;
-  newArray=[];
-
-
+  totalPrice: number = 0;
+  sub: Subscription = null;
+  cart: BehaviorSubject<any> = new BehaviorSubject<any>([]);
 
   ngOnInit(): void {
-
-    localStorage.setItem('cart', JSON.stringify(this.cartItems));
-
-    this.sumTotalPrice();
+    this.cart.next(JSON.parse(localStorage.getItem('cart')) || []);
+    this.sub = this.cart.subscribe(
+      () => this.updateTotalPrice(),
+      err => console.log(err.message || err)
+    );
   }
 
+  quantityOperation(itemId: string, increment: boolean): void {
+    const index = this.cart.getValue().findIndex(({_id}) => _id === itemId);
+    const item = this.cart.getValue().slice(index, index + 1)[0];
 
-  sumTotalPrice() {
+    if (+item['quantity'] <= 1 && !increment)
+      return this.deleteItem(item._id);
 
-    this.newArray =  JSON.parse( localStorage.getItem('cart'));
-
-    this.newArray.forEach(element => {
-      this.totalPrice  += element['price'];
-    });
-
-    console.log('TOTAL', this.totalPrice);
-    console.log( "ID ", JSON.parse( localStorage.getItem('id')));
+    increment ? +item['quantity']++ : +item['quantity']--;
+    this.cart.next([
+      ...this.cart.getValue().slice(0, index),
+      item,
+      ...this.cart.getValue().slice(index + 1)
+    ]);
   }
 
-  id: Number = 0;
+  deleteItem(itemId: string): void {
+    this.cart.next(this.cart.getValue().filter(({_id}) => _id !== itemId));
+  }
 
-  addItem(){
+  updateTotalPrice(): void {
+    this.totalPrice = this.cart.getValue()
+      .reduce((accumulator, item) => accumulator + (item.price * item.quantity), 0);
+  }
 
-    this.newArray =  JSON.parse( localStorage.getItem('cart'));
-    this.newArray.forEach(element => {
-      this.id += element['id'];
-    });
-
-    console.log('ID', this.id);
+  ngOnDestroy(): void {
+    const json = JSON.stringify(this.cart.getValue());
+    localStorage.setItem('cart', json);
+    if (this.sub) {
+      this.sub.unsubscribe();
+    }
   }
 
 }
-
-
-

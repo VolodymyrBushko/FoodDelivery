@@ -1,4 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {Router} from '@angular/router';
+
 import Item from '../../interfaces/Item';
 
 @Component({
@@ -9,11 +11,15 @@ import Item from '../../interfaces/Item';
 export class ItemCardComponent implements OnInit {
 
   @Input() item: Item;
+  route: string;
 
-  constructor() {
+  constructor(
+    private router: Router
+  ) {
   }
 
   ngOnInit(): void {
+    this.route = this.router.url;
   }
 
 }
