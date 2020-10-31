@@ -8,7 +8,7 @@ import {ItemService} from '../../services/item.service';
 })
 export class HomePageComponent implements OnInit {
 
-  // item;
+  item;
 
   constructor(
     private itemService: ItemService
@@ -16,11 +16,11 @@ export class HomePageComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // this.itemService.getItemById('5f9a772fc23e34134458dc81')
-    //   .subscribe(
-    //     data => {this.item = data;console.log(data)},
-    //     err => console.log(err.message || err)
-    //   );
+    this.itemService.getItemById('5f9a772fc23e34134458dc81')
+      .subscribe(
+        data => this.item = data,
+        err => console.log(err.message || err)
+      );
   }
 
 }
