@@ -1,21 +1,23 @@
 .itemCard {
-  background-color: #C99966;
+  background: rgb(224,149,70);
+  background: linear-gradient(0deg, rgba(224,149,70,1) 34%, rgba(253,187,45,1) 77%);
   width: 16rem;
   border-radius: 10px;
+  box-shadow: 0 20px 20px rgb(90, 42, 4);
 }
 
 .title {
   text-align: center;
   padding: 10px;
   margin: 0;
+  font: 15pt icon; 
+  text-shadow: 2px 2px 5px #5a3003;
 }
 
 .price {
   text-align: center;
-  width: auto;
-  height: 20px;
-  border-radius: 10px;
-  background-color: #FFB362;
+  font: 15pt icon; 
+  text-shadow: 2px 2px 5px #5a3003;
 }
 
 a {
@@ -25,4 +27,8 @@ a {
 
 a:hover {
   text-decoration: none;
+}
+
+.card {
+  border-radius: 20px;
 }

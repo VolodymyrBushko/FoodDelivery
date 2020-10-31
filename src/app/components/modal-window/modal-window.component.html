@@ -1,10 +1,4 @@
-<!-- <a routerLink="" [queryParams]="{'itemId':'3'}"
-    class="btn btn-lg btn-success" data-toggle="modal" data-target="#basicModal">
-  Click to open Modal
-</a>
-<hr/> -->
-
-<div class="modal fade" id="basicModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true" *ngIf="item">
+<div class="modal fade" id="basicModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -13,14 +7,14 @@
         <button type="button" class="close-znak close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">×</span>
         </button>
-        <h3 class=text-center>{{item.name}}</h3>
+        <h3 class=text-center><b>{{item.name}}</b></h3>
 
         <div class="container">
           <div class='row'>
-            <div class="col-5 d-flex align-items-center">
+            <div class="col-6 d-flex align-items-center">
               <img [src]="item.imageUrl" alt="назва товару" class="image">
             </div>
-            <div class="col-7">
+            <div class="col-4">
 
               <ul class="fields-list">
                 <li><strong>weight:</strong>&nbsp;{{item.weight}}</li>
