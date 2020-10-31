@@ -1,12 +1,6 @@
-
 html, body
 {
-  background: url(assets/images/b9.jpg) no-repeat center center fixed;
+  background: url(assets/images/b9.jpg) center fixed;
   background-size: cover;
+  height: 100%; 
 }
-
-
-
-
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

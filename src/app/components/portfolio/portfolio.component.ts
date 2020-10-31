@@ -1,11 +1,11 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup} from '@angular/forms';
+import {Router} from '@angular/router';
 
 import validator from '../../validators/portfolio.validator';
 import parseJwt from '../../utils/parseJwt';
 import {UserService} from '../../services/user.service';
 import {AuthService} from '../../services/auth.service';
-import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-portfolio',
@@ -15,7 +15,7 @@ import {Router} from '@angular/router';
 export class PortfolioComponent implements OnInit {
 
   form: FormGroup;
-  token;
+  userId: string;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -23,17 +23,14 @@ export class PortfolioComponent implements OnInit {
     private authService: AuthService,
     private router: Router
   ) {
-    this.token = parseJwt(localStorage.getItem('token'));
+    const token = parseJwt(localStorage.getItem('token'));
+    this.userId = token._id;
   }
 
   async ngOnInit() {
-
-    const {_id} = this.token;
-    const user = await this.userService.getUserById(_id).toPromise();
-
+    const user = await this.userService.getUserById(this.userId).toPromise();
     this.form = this.formBuilder.group({
       'login': [user['login'], validator.login],
-      'email': [user['email'], validator.email],
       'phone': [user['phone'], validator.phone],
       'imageUrl': [user['imageUrl'], validator.imageUrl]
     });
@@ -41,10 +38,11 @@ export class PortfolioComponent implements OnInit {
 
   async onUpdate() {
     if (this.form.valid) {
-      const {_id} = this.token;
-      await this.userService.updateUserById(this.form.value, _id).toPromise();
+      await this.userService.updateUserById(this.form.value, this.userId).toPromise();
       this.authService.logout();
       await this.router.navigate(['/']);
+    } else {
+      console.log('invalid form');
     }
   }
 

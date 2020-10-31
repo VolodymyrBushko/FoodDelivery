@@ -10,6 +10,7 @@ export class CardComponent implements OnInit {
 
   @Input() imgPath;
   @Input() txtCard;
+  @Input() txtPhone;
 
   constructor() { }
 
