@@ -8,6 +8,7 @@ const categoriesRouter = require('./routes/categoriesRouter.js');
 const userRouter = require('./routes/userRouter.js');
 const itemRouter = require('./routes/itemRouter');
 const orderRouter = require('./routes/orderRouter');
+const feedbackRouter=require('./routes/feedbackRouter')
 
 const PORT = config.get('port');
 
@@ -39,7 +40,7 @@ app.use('/api/items/', itemRouter);
 app.use('/api/orders/', orderRouter);
 app.use('/api/categories/', categoriesRouter);
 app.use('/api/users/', userRouter);
-
+app.use('/api/feedback/', feedbackRouter);
 start();
 
 process.on('SIGINT', () => {
