@@ -13,8 +13,6 @@ import {BasketPageComponent} from './pages/basket-page/basket-page.component';
 import {ProfilePageComponent} from './pages/profile-page/profile-page.component';
 import {CategoryPageComponent} from './pages/category-page/category-page.component';
 import {OrderPageComponent} from './pages/order-page/order-page.component';
-import {LoginPageComponent} from './pages/login-page/login-page.component';
-import {RegisterPageComponent} from './pages/register-page/register-page.component';
 import {HeaderComponent} from './components/header/header.component';
 import {NavbarComponent} from './components/navbar/navbar.component';
 import {CategoryListComponent} from './components/category-list/category-list.component';
@@ -37,6 +35,7 @@ import {RouterModule} from '@angular/router';
 
 import { CardComponent } from './components/card/card.component';
 import { SliderComponent } from './components/slider/slider.component';
+import { AuthPageComponent } from './pages/auth-page/auth-page.component';
 
 
 
@@ -52,8 +51,6 @@ import { SliderComponent } from './components/slider/slider.component';
     ProfilePageComponent,
     CategoryPageComponent,
     OrderPageComponent,
-    LoginPageComponent,
-    RegisterPageComponent,
     HeaderComponent,
     NavbarComponent,
     CategoryListComponent,
@@ -70,6 +67,7 @@ import { SliderComponent } from './components/slider/slider.component';
     OrderListComponent,
     InfoComponent,
     PortfolioComponent,
+    AuthPageComponent,
   ],
   imports: [
     BrowserModule,
