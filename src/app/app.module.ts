@@ -39,6 +39,7 @@ import { CardComponent } from './components/card/card.component';
 import { SliderComponent } from './components/slider/slider.component';
 import { UserFormComponent } from './forms/user-form/user-form.component';
 import { ItemFormComponent } from './forms/item-form/item-form.component';
+import { CategoryFormComponent } from './forms/category-form/category-form.component';
 
 
 
@@ -74,6 +75,7 @@ import { ItemFormComponent } from './forms/item-form/item-form.component';
     PortfolioComponent,
     UserFormComponent,
     ItemFormComponent,
+    CategoryFormComponent,
   ],
   imports: [
     BrowserModule,

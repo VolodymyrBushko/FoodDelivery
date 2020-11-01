@@ -13,6 +13,9 @@
             <ng-template ngSwitchCase="items">
               {{model['name']}}&nbsp;<{{model['category']['name']}}>
             </ng-template>
+            <ng-template ngSwitchCase="categories">
+              {{model['name']}}
+            </ng-template>
           </div>
 
         </button>
@@ -28,6 +31,9 @@
           </ng-template>
           <ng-template ngSwitchCase="items">
             <app-item-form [item]="model" (onDelete)="onDelete($event)" [categories]="shortCategories"></app-item-form>
+          </ng-template>
+          <ng-template ngSwitchCase="categories">
+            <app-category-form [category]="model" (onDelete)="onDelete($event)"></app-category-form>
           </ng-template>
         </div>
 
