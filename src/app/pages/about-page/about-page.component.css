@@ -1,4 +1,10 @@
 .cardes {
-    background-image: url(../../../assets/images/card/backgroung-board-card.jpg);
+    background-image: url(../../../assets/images/card/background-image.jpg);
+    border-radius: 40px;
+}
+.background {
+    margin-top: 20px;
+    padding: 10px;
+    background-image: url(../../../assets/images/card/background-image.jpg);
     border-radius: 40px;
 }

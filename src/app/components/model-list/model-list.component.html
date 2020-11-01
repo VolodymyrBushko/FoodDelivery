@@ -1,35 +1,55 @@
-<div class="container" *ngIf="array">
-  <ul>
-    <li *ngFor="let item of selector()">
-      <div data-toggle="collapse" [attr.data-target]="'#id' + item['_id']" aria-expanded="true">
-        <div class="myItem">
-          <p>{{item['preview']}}</p>
-        </div>
-        <div [id]="'id' + item['_id']" class="collapse hide">
-          <div class="card">
-            <div class="card-body">
-              <div *ngFor="let field of item['fields']|keyvalue">
-                <div *ngIf="field['key'] !== 'items'">
-                  <label>{{field['key']}}</label>
-                  <input [value]="field['value']" type="text" class="form-control">
-                </div>
-                <!-- ***** -->
-                <div *ngIf="field['key'] === 'items'">
-                  <h3>{{field['key']}}</h3>
-                  <ul>
-                    <li *ngFor="let item of field['value']">
+<div id="accordion" *ngIf="array && !loader">
+  <div class="card" *ngFor="let model of array; let i = index">
 
-                      <!-- order list here -->
+    <div class="card-header" id="headingThree">
+      <h5 class="mb-0">
+        <button class="btn btn-secondary collapsed w-100 background" data-toggle="collapse"
+                [attr.data-target]="'#id' + model['_id']" aria-expanded="false">
 
-                    </li>
-                  </ul>
-                </div>
-                <!-- ***** -->
-              </div>
-            </div>
+          <div *ngIf="!i">
+            new model
           </div>
+
+          <div [ngSwitch]="choice.getValue()" class="text-left" *ngIf="i">
+            <ng-template ngSwitchCase="users">
+              {{model['login']}}&nbsp;<{{model['email']}}>
+            </ng-template>
+            <ng-template ngSwitchCase="items">
+              {{model['name']}}&nbsp;<{{model['category']['name']}}>
+            </ng-template>
+            <ng-template ngSwitchCase="categories">
+              {{model['name']}}
+            </ng-template>
+            <ng-template ngSwitchCase="orders">
+              {{model['email']}}&nbsp;<{{model['date'] | date}}>
+            </ng-template>
+          </div>
+
+        </button>
+      </h5>
+    </div>
+
+    <div [id]="'id' + model['_id']" class="collapse" data-parent="#accordion">
+      <div class="card-body">
+
+        <div [ngSwitch]="choice.getValue()">
+          <ng-template ngSwitchCase="users">
+            <app-user-form [user]="model" [new]="!i" (onDelete)="onDelete($event)"></app-user-form>
+          </ng-template>
+          <ng-template ngSwitchCase="items">
+            <app-item-form [item]="model" [categories]="shortCategories" [new]="!i" (onDelete)="onDelete($event)"></app-item-form>
+          </ng-template>
+          <ng-template ngSwitchCase="categories">
+            <app-category-form [category]="model" (onDelete)="onDelete($event)" [new]="!i"></app-category-form>
+          </ng-template>
+          <ng-template ngSwitchCase="orders">
+            <app-order-form [order]="model" [users]="shortUsers" [items]="shortItems"
+                            (onDelete)="onDelete($event)" [new]="!i"></app-order-form>
+          </ng-template>
         </div>
+
       </div>
-    </li>
-  </ul>
+    </div>
+
+  </div>
 </div>

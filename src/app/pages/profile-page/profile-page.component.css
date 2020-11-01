@@ -1,0 +1,10 @@
+.background {
+    background-image: url(../../../assets/images/card/background-image.jpg);
+}
+
+.background-admun {
+    background-image: url(../../../assets/images/card/background-image.jpg);
+    border-radius: 30px;
+    margin-bottom: 60px;
+    padding: 10px;
+}

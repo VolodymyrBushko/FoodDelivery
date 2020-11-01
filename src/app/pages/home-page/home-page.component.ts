@@ -16,7 +16,7 @@ export class HomePageComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.itemService.getItemById('5f9a772fc23e34134458dc81')
+    this.itemService.getItemById('5f9a77d3c23e34134458dc83')
       .subscribe(
         data => this.item = data,
         err => console.log(err.message || err)

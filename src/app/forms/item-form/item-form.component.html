@@ -1,0 +1,65 @@
+<form [formGroup]="form" *ngIf="item" class="bg-light p-3 rounded" novalidate>
+
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input id="name" type="text" class="form-control" formControlName="name">
+    <div class="text-danger" *ngIf="form.controls['name'].invalid && form.controls['name'].touched">
+      <p>invalid name</p>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="price">Price</label>
+    <input id="price" type="number" class="form-control" formControlName="price">
+    <div class="text-danger" *ngIf="form.controls['price'].invalid && form.controls['price'].touched">
+      <p>invalid price</p>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="category">Category</label>
+    <select id="category" class="form-control" formControlName="category">
+      <option [value]="category['_id']" *ngFor="let category of categories">
+        {{category['name']}}
+      </option>
+    </select>
+    <div class="text-danger" *ngIf="form.controls['category'].invalid && form.controls['category'].touched">
+      <p>invalid category</p>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="weight">Weight</label>
+    <input id="weight" type="number" class="form-control" formControlName="weight">
+    <div class="text-danger" *ngIf="form.controls['weight'].invalid && form.controls['weight'].touched">
+      <p>invalid weight</p>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="imageUrl">Image url</label>
+    <input id="imageUrl" type="text" class="form-control" formControlName="imageUrl">
+    <div class="text-danger" *ngIf="form.controls['imageUrl'].invalid && form.controls['imageUrl'].touched">
+      <p>invalid imageUrl</p>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="description">Description</label>
+    <textarea id="description" rows="4" class="form-control" formControlName="description"></textarea>
+    <div class="text-danger" *ngIf="form.controls['description'].invalid && form.controls['description'].touched">
+      <p>invalid description</p>
+    </div>
+  </div>
+
+  <div class="form-group d-flex justify-content-end">
+    <div *ngIf="!new">
+    <button class="btn btn-warning" (click)="update()" [disabled]="form.invalid">update</button>
+    <button class="btn btn-danger" (click)="delete()">delete</button>
+    </div>
+    <div *ngIf="new">
+      <button class="btn btn-success" (click)="save()">save</button>
+    </div>
+  </div>
+
+</form>

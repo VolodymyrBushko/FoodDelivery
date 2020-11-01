@@ -1,13 +1,14 @@
 .card {
-  background-color: #FF901C;
+  background: rgb(253,187,45);
+  background: linear-gradient(0deg, rgba(253,187,45,1) 0%, rgba(191,166,140,1) 100%);
   border-radius: 10px;
-  margin-bottom: 5px;
-  padding-bottom: 5px;
+  margin-bottom: 10px;
 }
 
 .card-title {
-  text-align: center;
-  font-size: 14px;
+  text-shadow: 2px 2px 5px #5a3003;
+  font-size: 15pt;
+  font: 15pt icon;
 }
 
 .card:hover {
