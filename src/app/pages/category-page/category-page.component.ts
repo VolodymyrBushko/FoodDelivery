@@ -11,7 +11,7 @@ import {ItemService} from '../../services/item.service';
 })
 export class CategoryPageComponent implements OnInit {
 
-  items: Item[] = [];
+  items: Item[] = null;
 
   constructor(
     private itemService: ItemService,

@@ -1,51 +1,20 @@
-/* footer{
-    width: 100%;
-    background-color:#1F1A14;
-    padding: 5px 8rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-} */
-
-/* p{
-    color: #FFB362;
-    margin:  0px;
-}
-
-.right{
-  margin-right: 10px;
-  background-color:#FFB362;
-  border-radius: 40px;
-} */
-
-/* ul
-{
-  list-style: none;
-  display: flex;
-  margin: 0;
-  padding: 5px 10px;
-} */
-
-
-
-
-
-
 .container-fluid {
   background-color: #1F1A14;
 }
-img{
+
+img {
   width: 25px;
   margin: 0 5px;
-
+}
 
 .visaMaster {
-  background-color:#FFB362;
+  background-color: #FFB362;
   border-radius: 15px;
   list-style: none;
   display: flex;
 }
-.left{
+
+.left {
   margin-left: 0;
 }
 
@@ -61,7 +30,7 @@ p {
 
 
 .social {
-  background-color:#FFB362;
+  background-color: #FFB362;
   border-radius: 15px;
   list-style: none;
   display: flex;
