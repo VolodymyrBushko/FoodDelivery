@@ -21,6 +21,8 @@ export class ModelListComponent implements OnInit {
   loader: boolean = false;
   choice: BehaviorSubject<string> = new BehaviorSubject<string>('items');
   shortCategories = null;
+  shortUsers = null;
+  shortItems = null;
 
   constructor(
     private userService: UserService,
@@ -33,6 +35,8 @@ export class ModelListComponent implements OnInit {
   async ngOnInit() {
     this.choice.subscribe(choice => this.onChoice(choice));
     this.shortCategories = await this.getShortCategories();
+    this.shortUsers = await this.getShortUsers();
+    this.shortItems = await this.getShortItems();
   }
 
   async onChoice(choice) {
@@ -62,6 +66,30 @@ export class ModelListComponent implements OnInit {
     try {
       const categories = await this.categoryService.getCategories().toPromise() as [] || [];
       return categories.map(({_id, name}) => ({
+        _id, name
+      }));
+    } catch (e) {
+      console.log(e.message);
+      return [];
+    }
+  }
+
+  async getShortUsers() {
+    try {
+      const users = await this.userService.getUsers().toPromise() as [] || [];
+      return users.map(({_id, login}) => ({
+        _id, login
+      }));
+    } catch (e) {
+      console.log(e.message);
+      return [];
+    }
+  }
+
+  async getShortItems() {
+    try {
+      const items = await this.itemService.getItems().toPromise() as [] || [];
+      return items.map(({_id, name}) => ({
         _id, name
       }));
     } catch (e) {

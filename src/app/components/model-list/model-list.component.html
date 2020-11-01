@@ -16,6 +16,9 @@
             <ng-template ngSwitchCase="categories">
               {{model['name']}}
             </ng-template>
+            <ng-template ngSwitchCase="orders">
+              {{model['email']}}&nbsp;<{{model['date'] | date}}>
+            </ng-template>
           </div>
 
         </button>
@@ -30,10 +33,14 @@
             <app-user-form [user]="model" (onDelete)="onDelete($event)"></app-user-form>
           </ng-template>
           <ng-template ngSwitchCase="items">
-            <app-item-form [item]="model" (onDelete)="onDelete($event)" [categories]="shortCategories"></app-item-form>
+            <app-item-form [item]="model" [categories]="shortCategories" (onDelete)="onDelete($event)"></app-item-form>
           </ng-template>
           <ng-template ngSwitchCase="categories">
             <app-category-form [category]="model" (onDelete)="onDelete($event)"></app-category-form>
+          </ng-template>
+          <ng-template ngSwitchCase="orders">
+            <app-order-form [order]="model" [users]="shortUsers" [items]="shortItems"
+                            (onDelete)="onDelete($event)"></app-order-form>
           </ng-template>
         </div>
 

@@ -40,6 +40,7 @@ import { SliderComponent } from './components/slider/slider.component';
 import { UserFormComponent } from './forms/user-form/user-form.component';
 import { ItemFormComponent } from './forms/item-form/item-form.component';
 import { CategoryFormComponent } from './forms/category-form/category-form.component';
+import { OrderFormComponent } from './forms/order-form/order-form.component';
 
 
 
@@ -76,6 +77,7 @@ import { CategoryFormComponent } from './forms/category-form/category-form.compo
     UserFormComponent,
     ItemFormComponent,
     CategoryFormComponent,
+    OrderFormComponent,
   ],
   imports: [
     BrowserModule,
