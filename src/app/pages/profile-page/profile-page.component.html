@@ -7,14 +7,14 @@
     </div>
   </div>
   <div class="row d-flex justify-content-center">
-    <div class="col-10">
+    <div class="col-12">
 
       <div *ngIf="!token['isAdmin']">
         <app-order-list></app-order-list>
       </div>
       <div *ngIf="token['isAdmin']">
 
-        <div style="margin-bottom: 60px">
+        <div style="margin-bottom: 60px" class="background-admun">
           <app-controll-radio-group (onChanged)="onChange($event)"></app-controll-radio-group>
         </div>
 

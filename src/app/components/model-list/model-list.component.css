@@ -37,10 +37,29 @@ ul {
 }
 
 .card {
-  background-color: #C99966;
+  background-image: url(../../../assets/images/card/background-image.jpg);
+  border-radius: 15px;
+  padding: 5px;
+  margin: 5px;
+
+  
 }
 
 input {
   background-color: #70675F;
   color: #FFFFFF;
+}
+
+.collapse {
+  font-size: 15pt;
+  font: 15pt icon; 
+}
+
+.background {
+  background: rgb(253,187,45);
+  background: linear-gradient(0deg, rgba(253,187,45,1) 0%, rgba(191,166,140,1) 100%);
+  color: black;
+  text-shadow: 2px 2px 5px #5a3003;
+  font-size: 15pt;
+  font: 15pt icon; 
 }
