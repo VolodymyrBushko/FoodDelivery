@@ -1,4 +1,5 @@
 .cardes {
-    background-image: url(../../../assets/images/card/backgroung-board-card.jpg);
+    background-image: url(../../../assets/images/card/background-image.jpg);
+    border-radius: 10px;
     border-radius: 40px;
 }

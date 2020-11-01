@@ -1,34 +1,44 @@
 .btn {
-  background: linear-gradient(180deg, #FF901C 0%, #FFB362 100%);
+  background: rgb(253,187,45);
+  background: linear-gradient(0deg, rgba(253,187,45,1) 0%, rgba(191,166,140,1) 100%);
+  box-shadow: 0 0 20px rgb(90, 42, 4);
   border-radius: 40px;
   color: black;
-  border-color: #A5A29D;
+  text-shadow: 2px 2px 5px #5a3003;
+  font-size: 15pt;
+  font: 15pt icon;
 }
 
 .avatar {
-  margin-left: 40px;
-  background: #FF901C;
+  /* padding: 10px;
+  margin-left: 20px; */
+  margin: 10px;
+  background: rgb(253,187,45);
+  background: linear-gradient(0deg, rgba(253,187,45,1) 0%, rgba(191,166,140,1) 100%);
   border: 3px solid #000000;
   border-radius: 28px;
 }
 
 .text-login, .text-email, .text-phone, .text-file {
-  margin: 20px;
-  padding-bottom: 10px;
+  margin-top: 15px;
+  margin-bottom: 15px;
   width: 100%;
-  background-color: #FF901C;
+  background: rgb(253,187,45);
+  background: linear-gradient(0deg, rgba(253,187,45,1) 0%, rgba(191,166,140,1) 100%);
   border-radius: 20px;
   border-color: #A5A29D;
+  text-shadow: 2px 2px 5px #5a3003;
+  font: 15pt icon;  
 }
 
 .btn {
-  margin-left: 20px;
+  /* margin-left: 10px; */
   width: 100%;
 }
 
 .error-login {
-  width: 100%;
-  margin-left: 10px;
+  /* width: 100%;
+  margin-left: 10px; */
   border-radius: 20px;
 }
 
@@ -38,4 +48,12 @@ input.ng-touched.ng-invalid {
 
 input.ng-touched.ng-valid {
   border: solid green 2.3px;
+}
+
+.background {
+  height: auto;
+  margin-bottom: 15px;
+  background-image: url(../../../assets/images/card/background-image.jpg);
+  background-size: cover;
+  border-radius: 40px;
 }
