@@ -10,6 +10,9 @@
             <ng-template ngSwitchCase="users">
               {{model['login']}}&nbsp;<{{model['email']}}>
             </ng-template>
+            <ng-template ngSwitchCase="items">
+              {{model['name']}}&nbsp;<{{model['category']['name']}}>
+            </ng-template>
           </div>
 
         </button>
@@ -23,10 +26,11 @@
           <ng-template ngSwitchCase="users">
             <app-user-form [user]="model" (onDelete)="onDelete($event)"></app-user-form>
           </ng-template>
+          <ng-template ngSwitchCase="items">
+            <app-item-form [item]="model" (onDelete)="onDelete($event)" [categories]="shortCategories"></app-item-form>
+          </ng-template>
         </div>
 
-      </div>
-      <div class="card-footer d-flex justify-content-end">
       </div>
     </div>
 

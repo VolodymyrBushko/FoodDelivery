@@ -38,6 +38,7 @@ import {RouterModule} from '@angular/router';
 import { CardComponent } from './components/card/card.component';
 import { SliderComponent } from './components/slider/slider.component';
 import { UserFormComponent } from './forms/user-form/user-form.component';
+import { ItemFormComponent } from './forms/item-form/item-form.component';
 
 
 
@@ -72,6 +73,7 @@ import { UserFormComponent } from './forms/user-form/user-form.component';
     InfoComponent,
     PortfolioComponent,
     UserFormComponent,
+    ItemFormComponent,
   ],
   imports: [
     BrowserModule,
