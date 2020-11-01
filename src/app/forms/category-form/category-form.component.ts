@@ -12,6 +12,7 @@ import {CategoryService} from '../../services/category.service';
 export class CategoryFormComponent implements OnInit {
 
   @Input() category = null;
+  @Input() new = false;
   form: FormGroup = null;
   loader: boolean = false;
   @Output() onDelete = new EventEmitter<string>();
@@ -47,6 +48,15 @@ export class CategoryFormComponent implements OnInit {
       await this.categoryService.deleteCategory(_id).toPromise();
       this.onDelete.emit(_id);
       console.log(`category with id ${_id} has been deleted`);
+    } catch (e) {
+      console.log(e.message);
+    }
+  }
+
+  async save() {
+    try {
+      await this.categoryService.addCategory(this.form.value).toPromise();
+      console.log('category has been added');
     } catch (e) {
       console.log(e.message);
     }

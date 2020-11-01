@@ -13,6 +13,7 @@ export class OrderFormComponent implements OnInit {
   @Input() order = null;
   @Input() users = null;
   @Input() items = null;
+  @Input() new = false;
   form: FormGroup = null;
   loader: boolean = false;
   @Output() onDelete = new EventEmitter<string>();
@@ -80,6 +81,15 @@ export class OrderFormComponent implements OnInit {
       await this.orderService.deleteOrder(_id).toPromise();
       this.onDelete.emit(_id);
       console.log(`order with id ${_id} has been deleted`);
+    } catch (e) {
+      console.log(e.message);
+    }
+  }
+
+  async save() {
+    try {
+      await this.orderService.addOrder(this.form.value).toPromise();
+      console.log('order has been added');
     } catch (e) {
       console.log(e.message);
     }

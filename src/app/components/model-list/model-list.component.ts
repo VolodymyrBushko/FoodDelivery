@@ -5,6 +5,7 @@ import {UserService} from '../../services/user.service';
 import {ItemService} from '../../services/item.service';
 import {CategoryService} from '../../services/category.service';
 import {OrderService} from '../../services/order.service';
+import mannequins from '../../other/mannequins';
 
 @Component({
   selector: 'app-model-list',
@@ -44,15 +45,19 @@ export class ModelListComponent implements OnInit {
     switch (choice) {
       case 'items':
         this.array = await this.itemService.getItems().toPromise();
+        this.array.unshift(mannequins.item);
         break;
       case 'categories':
         this.array = await this.categoryService.getCategories().toPromise();
+        this.array.unshift(mannequins.category);
         break;
       case 'orders':
         this.array = await this.orderService.getOrders().toPromise();
+        this.array.unshift(mannequins.order);
         break;
       case 'users':
         this.array = await this.userService.getUsers().toPromise();
+        this.array.unshift(mannequins.user);
         break;
     }
     this.loader = false;

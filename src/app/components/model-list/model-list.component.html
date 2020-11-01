@@ -1,12 +1,16 @@
 <div id="accordion" *ngIf="array && !loader">
-  <div class="card" *ngFor="let model of array">
+  <div class="card" *ngFor="let model of array; let i = index">
 
     <div class="card-header" id="headingThree">
       <h5 class="mb-0">
         <button class="btn btn-secondary collapsed w-100" data-toggle="collapse"
                 [attr.data-target]="'#id' + model['_id']" aria-expanded="false">
 
-          <div [ngSwitch]="choice.getValue()" class="text-left">
+          <div *ngIf="!i">
+            new model
+          </div>
+
+          <div [ngSwitch]="choice.getValue()" class="text-left" *ngIf="i">
             <ng-template ngSwitchCase="users">
               {{model['login']}}&nbsp;<{{model['email']}}>
             </ng-template>
@@ -30,17 +34,17 @@
 
         <div [ngSwitch]="choice.getValue()">
           <ng-template ngSwitchCase="users">
-            <app-user-form [user]="model" (onDelete)="onDelete($event)"></app-user-form>
+            <app-user-form [user]="model" [new]="!i" (onDelete)="onDelete($event)"></app-user-form>
           </ng-template>
           <ng-template ngSwitchCase="items">
-            <app-item-form [item]="model" [categories]="shortCategories" (onDelete)="onDelete($event)"></app-item-form>
+            <app-item-form [item]="model" [categories]="shortCategories" [new]="!i" (onDelete)="onDelete($event)"></app-item-form>
           </ng-template>
           <ng-template ngSwitchCase="categories">
-            <app-category-form [category]="model" (onDelete)="onDelete($event)"></app-category-form>
+            <app-category-form [category]="model" (onDelete)="onDelete($event)" [new]="!i"></app-category-form>
           </ng-template>
           <ng-template ngSwitchCase="orders">
             <app-order-form [order]="model" [users]="shortUsers" [items]="shortItems"
-                            (onDelete)="onDelete($event)"></app-order-form>
+                            (onDelete)="onDelete($event)" [new]="!i"></app-order-form>
           </ng-template>
         </div>
 

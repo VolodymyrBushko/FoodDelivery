@@ -13,6 +13,7 @@ export class ItemFormComponent implements OnInit {
 
   @Input() item = null;
   @Input() categories = null;
+  @Input() new = false;
   form: FormGroup = null;
   loader: boolean = false;
   @Output() onDelete = new EventEmitter<string>();
@@ -52,6 +53,15 @@ export class ItemFormComponent implements OnInit {
       await this.itemService.deleteItemById(_id).toPromise();
       this.onDelete.emit(_id);
       console.log(`item with id ${_id} has been deleted`);
+    } catch (e) {
+      console.log(e.message);
+    }
+  }
+
+  async save() {
+    try {
+      await this.itemService.addItem(this.form.value).toPromise();
+      console.log(`item has been added`);
     } catch (e) {
       console.log(e.message);
     }

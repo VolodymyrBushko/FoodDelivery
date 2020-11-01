@@ -53,8 +53,13 @@
   </div>
 
   <div class="form-group d-flex justify-content-end">
+    <div *ngIf="!new">
     <button class="btn btn-warning" (click)="update()" [disabled]="form.invalid">update</button>
     <button class="btn btn-danger" (click)="delete()">delete</button>
+    </div>
+    <div *ngIf="new">
+      <button class="btn btn-success" (click)="save()">save</button>
+    </div>
   </div>
 
 </form>

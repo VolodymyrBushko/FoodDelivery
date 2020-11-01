@@ -8,6 +8,14 @@
     </div>
   </div>
 
+  <div class="form-group" *ngIf="new">
+    <label for="email">Email</label>
+    <input id="email" type="email" class="form-control" formControlName="email">
+    <div class="text-danger" *ngIf="form.controls['email'].invalid && form.controls['email'].touched">
+      <p>invalid email</p>
+    </div>
+  </div>
+
   <div class="form-group">
     <label for="phone">Phone</label>
     <input id="phone" type="number" class="form-control" formControlName="phone">
@@ -24,9 +32,30 @@
     </div>
   </div>
 
+  <div class="form-group" *ngIf="new">
+    <label for="password">Password</label>
+    <input id="password" type="password" class="form-control" formControlName="password">
+    <div class="text-danger" *ngIf="form.controls['password'].invalid && form.controls['password'].touched">
+      <p>invalid password</p>
+    </div>
+  </div>
+
+  <div class="form-group" *ngIf="new">
+    <label for="confirm">Confirm password</label>
+    <input id="confirm" type="password" class="form-control" formControlName="confirm">
+    <div class="text-danger" *ngIf="form.controls['confirm'].invalid && form.controls['confirm'].touched">
+      <p>invalid confirm password</p>
+    </div>
+  </div>
+
   <div class="form-group d-flex justify-content-end">
-    <button class="btn btn-warning" (click)="update()" [disabled]="form.invalid">update</button>
-    <button class="btn btn-danger" (click)="delete()">delete</button>
+    <div *ngIf="!new">
+      <button class="btn btn-warning" (click)="update()" [disabled]="form.invalid">update</button>
+      <button class="btn btn-danger" (click)="delete()">delete</button>
+    </div>
+    <div *ngIf="new">
+      <button class="btn btn-success" (click)="save()">save</button>
+    </div>
   </div>
 
 </form>
