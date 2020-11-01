@@ -1,0 +1,45 @@
+<div class="row" *ngIf="form">
+  <div class="col-md-12 mx-auto p-1">
+    <!--    <div class="card">-->
+    <div class="login-box">
+      <div class="login-snip">
+        <input id="tab-1" type="radio" name="tab" class="sign-in" checked (click)="isChecked(true)"><label for="tab-1" class="tab">Вхід</label>
+        <input id="tab-2" type="radio" name="tab" class="sign-up" (click)="isChecked(false)"><label for="tab-2" class="tab">Реєстрація</label>
+        <div class="login-space">
+          <div class="login" [formGroup]="form" *ngIf="isLogin">
+            <div class="group"><label class="label">Емайл</label> <input type="email" class="input"
+                formControlName="email"  placeholder="електронна пошта"></div>
+            <div class="group"><label class="label">Пароль</label> <input type="password" class="input"
+                formControlName="password" data-type="password" placeholder="пароль">
+            </div>
+            <div class="group" ><input  type="button" class="button" value="Вхід" (click)="login()"></div>
+            <div class="hr"></div>
+
+          </div>
+          <div class="sign-up-form" [formGroup]="form" *ngIf="!isLogin" >
+            <div class="group"><label class="label">Логін</label> <input type="text" class="input" placeholder="Логін" formControlName="login">
+            </div>
+            <div class="group"><label class="label">Email</label> <input type="text" class="input"
+                 placeholder="емайл адрес" formControlName="email"></div>
+            <div class="group"><label class="label">Телефон</label> <input type="text" class="input"
+                 formControlName="phone"  placeholder="формат телефона +380...."></div>
+            <div class="group"><label class="label">Аватарка</label> <input type="text" class="input"
+                 formControlName="imageUrl" placeholder="Введіть шляш до фото"></div>
+            <div class="group"><label class="label">Пароль</label> <input type="password" class="input"
+                 data-type="password" formControlName="password" placeholder="придумайте пароль і збережіть його">
+            </div>
+            <div class="group"><label class="label">Пароль</label> <input type="password" class="input"
+                 data-type="password" formControlName="confirm" placeholder="Повторіть пароль"></div>
+
+            <div class="group" >
+              <input  type="button" class="button" value="Реєстрація" (click)="register()"></div>
+            <div class="hr"></div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--    </div>-->
+  </div>
+</div>
+

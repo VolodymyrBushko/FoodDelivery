@@ -1,41 +1,56 @@
 h6 {
-    background-color: #E09546;
+  background-color: #E09546;
 }
+
 .test {
-    background-color: #E09546;
-    padding: 10px;
+  background-color: #E09546;
+  padding: 10px;
 }
+
 table {
-    background-color: #E09546;
+  background-color: #E09546;
 }
+
 .bacground {
-    background-color: #70675F;
-    padding-bottom: 10px;
-    border-radius: 20px;
+  background-color: #70675F;
+  padding-bottom: 10px;
+  border-radius: 20px;
 }
+
 .sum {
-    margin: auto;
-    width: 80%;
-    background: #FF901C;
+  margin: auto;
+  width: 80%;
+  background: #FF901C;
 }
+
 h5 {
-    color: #E3A058;
+  color: #E3A058;
 }
+
 .items {
-    background-color: #E09546;
+  background-color: #E09546;
 }
+
 td {
-    padding: 0;
-    margin-left: 5px;
+  padding: 0;
+  margin-left: 5px;
 }
+
 h5 {
-    padding-top: 5px;
+  padding-top: 5px;
 }
+
 .card {
-    background-color: #FF901C;
-    
+  background-color: #FF901C;
+
 }
 
 .onItem {
-    margin-left: 20px;
+  margin-left: 20px;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 5px;
 }

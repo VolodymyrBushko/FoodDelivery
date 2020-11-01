@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {Router} from '@angular/router';
+
+import Item from '../../interfaces/Item';
 
 @Component({
   selector: 'app-item-card',
@@ -6,15 +9,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./item-card.component.css']
 })
 export class ItemCardComponent implements OnInit {
-  imageUrl="../../../assets/images/item-card/sushi/1.jpg";
-  title="суші";
-  price=123;
-  constructor( ) {
 
+  @Input() item: Item;
+  route: string;
 
+  constructor(
+    private router: Router
+  ) {
   }
 
   ngOnInit(): void {
+    this.route = this.router.url;
   }
 
 }

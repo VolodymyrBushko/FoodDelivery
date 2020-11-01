@@ -1,40 +1,16 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-3 col-xl-3 col-lg-3">
-      <div class="card " style="width: 10rem;" (click)="itemsClick()">
-        <img [src]="imageUrl_1" class="card-img-top">
+
+    <div class="col-md-3 col-xl-3 col-lg-3" *ngFor="let button of buttons">
+      <div class="card" style="width: 10rem;" [id]="button.id" (click)="onClick(button.id)">
+        <img [src]="button.imageUrl" class="card-img-top" [alt]="button.label">
         <div class="card-body">
-        <h5 class="card-title"> Товари </h5>
+          <h5 class="card-title">
+            {{button.label}}
+          </h5>
         </div>
       </div>
-
     </div>
-    <div class="col-md-3 col-xl-3 col-lg-3">
-      <div class="card " style="width: 10rem;" (click)="componentsClick()">
-        <img [src]="imageUrl_2" class="card-img-top">
-        <div class="card-body">
-          <h5 class="card-title">Компоненти</h5>
-        </div>
-      </div>
 
-    </div>
-    <div class="col-md-3 col-xl-3 col-lg-3">
-      <div class="card " style="width: 10rem;" (click)="ordersClick()">
-        <img [src]="imageUrl_3" class="card-img-top">
-        <div class="card-body">
-          <h5 class="card-title">Замовлення</h5>
-        </div>
-      </div>
-
-    </div>
-    <div class="col-md-3 col-xl-3 col-lg-3">
-      <div class="card " style="width: 10rem;" (click)="usersClick()">
-        <img [src]="imageUrl_4" class="card-img-top">
-        <div class="card-body">
-          <h5 class="card-title">Користувачі</h5>
-        </div>
-      </div>
-
-    </div>
   </div>
 </div>

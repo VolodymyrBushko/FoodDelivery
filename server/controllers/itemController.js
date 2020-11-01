@@ -24,6 +24,17 @@ module.exports = {
     }
   },
 
+  async getItemByCategoryId(req, res) {
+    try {
+      const {id: _id} = req.params;
+      const items = await Item.find({category: _id}).populate('category', 'name');
+      await res.json(items);
+    } catch (e) {
+      console.log(e);
+      await res.status(500).json({message: e.message});
+    }
+  },
+
   async addItem(req, res) {
     try {
 

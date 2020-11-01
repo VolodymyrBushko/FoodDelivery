@@ -1,6 +1,11 @@
+.modal-content {
+  background-color: white;
+}
+
 .mybtn{
-  background-color: #C99966;
-  border-radius: 40px;
+  background: rgb(224,149,70);
+  background: linear-gradient(0deg, rgba(224,149,70,1) 34%, rgba(253,187,45,1) 77%);
+  border-radius: 20px;
   font-size:16px ;
   font-weight: bold;
   padding: 10px;
@@ -17,20 +22,30 @@
   border: none !important;
 }
 .close-znak{
-  background-color: #EC2323;
+  background-color: red;
   border-radius: 50%;
   width: 2em;
   height: 2em;
   display: flex;
   align-items: center;
   justify-content: center;
-} 
+}
+
+li, h3 {
+  color: #000000;
+  font: 15pt icon; 
+  text-shadow: 0 0 5px #141413;
+}
 
 .image {
-  max-width: 136px;
+  width: 200px;
 }
 
 .fields-list {
   margin-bottom: 0;
   list-style: none;
+}
+.close-znak:focus {
+  outline: none;
+  border: none;
 }

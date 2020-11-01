@@ -1,12 +1,10 @@
 .app{
-    background-color: #E09546;
-    padding: 20px;
-    border-radius: 20px;
-}
-.desc {
-    margin: 5px;
+  background: rgb(253,187,45);
+  background: linear-gradient(0deg, rgba(253,187,45,1) 0%, rgba(191,166,140,1) 100%);
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgb(90, 42, 4);
 }
 .img {
-    margin: auto;
     border-radius: 30px;
+    width: 220px;
 }

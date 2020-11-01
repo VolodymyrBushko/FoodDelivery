@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {ItemService} from '../../services/item.service';
 
 @Component({
   selector: 'app-home-page',
@@ -7,9 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomePageComponent implements OnInit {
 
-  constructor() { }
+  item;
+
+  constructor(
+    private itemService: ItemService
+  ) {
+  }
 
   ngOnInit(): void {
+    this.itemService.getItemById('5f9a772fc23e34134458dc81')
+      .subscribe(
+        data => this.item = data,
+        err => console.log(err.message || err)
+      );
   }
 
 }

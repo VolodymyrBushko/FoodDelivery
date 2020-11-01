@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {OrderService} from '../../services/order.service';
+import parseJwt from '../../utils/parseJwt';
 
 @Component({
   selector: 'app-order-list',
@@ -7,59 +9,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OrderListComponent implements OnInit {
 
-  orderList = [
-    {
-      id: 1,
-      user: 'vasyl',
-      date: '25.10.2020',
-      email: 'vasyl@gmail.com',
-      address: 'lviv',
-      totalPrice: 1000,
-      items: [
-        {
-          item: 'coca-cola',
-          quantity: 3
-        },
-        {
-          item: 'salat',
-          quantity: 3
-        },
-        {
-          item: 'pizza',
-          quantity: 1
-        }
-      ]
-    },
-    {
-      id: 2,
-      user: 'bob',
-      date: '26.10.2020',
-      email: 'user@gmail.com',
-      address: 'Kiev',
-      totalPrice: 200,
-      items: [
-        {
-          item: 'coca-cola',
-          quantity: 1
-        },
-        {
-          item: 'salat',
-          quantity: 1
-        },
-        {
-          item: 'pizza',
-          quantity: 1
-        }
-      ]
-    }
-  ];
+  orderList = [];
 
-  
-
-
-  constructor() { }
+  constructor(
+    private orderService: OrderService
+  ) {
+  }
 
   ngOnInit(): void {
+    const {_id} = parseJwt(localStorage.getItem('token'));
+    this.orderService.getOrderByUserId(_id)
+      .subscribe(
+        (data: []) => this.orderList = data,
+        err => console.log(err.message || err)
+      );
   }
 
 }

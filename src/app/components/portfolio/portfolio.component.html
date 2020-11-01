@@ -1,26 +1,33 @@
-<div class="conteiner" *ngFor="let user of userList">
+<div class="container-fluid">
   <div class="row">
-      <div>
-          <div class="avatar">
-              <img class="img"  [src]="user.imageUrl" width="200">
-          </div>
-          <div class="card-body">
-           <button class="btn btn-primary">Update</button>
-          </div>
+    <div>
+      <div class="avatar">
+        <img class="img"
+             [src]=" form && form.value['imageUrl'] ? form.value['imageUrl'] : '../../assets/portfolio/no-avatar.svg'"
+             width="200" height="180">
+      </div>
+      <div class="card-body">
+        <button class="btn btn-primary" (click)="onUpdate()">Update</button>
+      </div>
+    </div>
+
+    <div>
+      <form [formGroup]="form" novalidate *ngIf="form">
+        <div>
+          <input class="text-login text-center form-control"
+                 formControlName="login" type="text" placeholder="login">
         </div>
-        <div form [formGroup]="myForm" novalidate>
-              <div>
-                <input class="text-login text-center form-control" formControlName="login" type="text" placeholder="login">
-              </div>
-              <div>
-                <input class="text-email text-center form-control" formControlName="email" type="email" placeholder="email">
-              </div>
-              <div>
-                  <input class="text-phone text-center form-control" formControlName="phone" type="text" placeholder="phone">
-              </div>
-              <div>
-                <input class="text-file text-center form-control" formControlName="file" type="text" placeholder="file">
-            </div>
+        <div>
+          <input class="text-phone text-center form-control"
+                 formControlName="phone" type="text" placeholder="phone">
         </div>
+        <div>
+          <input class="text-file text-center form-control"
+                 formControlName="imageUrl" type="text"
+                 placeholder="imageUrl">
+        </div>
+      </form>
+    </div>
+
   </div>
 </div>

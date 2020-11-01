@@ -8,7 +8,7 @@ userRouter.get("/", passport.authenticate('jwt', {session: false}), userControll
 userRouter.get("/:id", passport.authenticate('jwt', {session: false}), userController.getUserById);
 userRouter.post("/login", userController.loginUser);
 userRouter.post("/register", validator, userController.registerUser);
-userRouter.put("/update/:id", [passport.authenticate('jwt', {session: false}), validator], userController.updateUserById);
+userRouter.put("/update/:id", [passport.authenticate('jwt', {session: false})], userController.updateUserById);
 userRouter.delete("/delete/:id", passport.authenticate('jwt', {session: false}), userController.deleteUserById);
 
 module.exports = userRouter;

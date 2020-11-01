@@ -1,1 +1,33 @@
-<p>home-page works!</p>
+<app-slider></app-slider>
+<div class="container-fluid mt-3 mb-3 ">
+  <div class="py-2 px-2">
+    <app-info [isLeft]="false"></app-info>
+  </div>
+  <div class="py-2 px-2">
+    <app-info [isLeft]="true"></app-info>
+  </div>
+</div>
+
+<div class="container-fluid mt-3 mb-3 ">
+  <div class="text-center pt-3"><h2 class="d-flex justify-content-center">Рекомендований набір</h2></div>
+  <div class="text-center">
+    <button class="btn btn-lg w-75">Обновити набір</button>
+  </div>
+
+  <div class="row" *ngIf="item">
+    <div class="col-md-4 col-12 py-2 px-2 d-flex justify-content-center ">
+      <app-item-card [item]="item"></app-item-card>
+    </div>
+    <div class="col-md-4 col-12 py-2 px-2 d-flex justify-content-center ">
+      <app-item-card [item]="item"></app-item-card>
+    </div>
+    <div class="col-md-4 col-12 py-2 px-2 d-flex justify-content-center ">
+      <app-item-card [item]="item"></app-item-card>
+    </div>
+  </div>
+
+</div>
+
+<div class="mb-3">
+  <app-map></app-map>
+</div>

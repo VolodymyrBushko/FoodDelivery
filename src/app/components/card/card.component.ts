@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Input,Component, OnInit  } from '@angular/core';
 
 @Component({
   selector: 'app-card',
@@ -8,9 +8,9 @@ import { Component, OnInit } from '@angular/core';
 
 export class CardComponent implements OnInit {
 
-  imgPath = '../../../assets/images/pic1.jpg';
-
-  txtCard = 'SOME TEXT';
+  @Input() imgPath;
+  @Input() txtCard;
+  @Input() txtPhone;
 
   constructor() { }
 
