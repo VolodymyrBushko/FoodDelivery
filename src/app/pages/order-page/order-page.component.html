@@ -1,34 +1,38 @@
-<div class="d-flex justify-content-center align-items-center order-container">
-<div class="order">
+<div class=" order-container">
+  <div class="row d-flex justify-content-center align-items-center h-75">
+    <div class="col-12 d-flex justify-content-center align-items-center">
+    <div class="order background">
 
-  <h2 class="text-center my-3 title">Оформлення замовлення</h2>
+      <h2 class="text-center my-3 title">Оформлення замовлення</h2>
 
-  <form class="order-form" [formGroup]="form" (ngSubmit)="onSubmit()">
-    <div class="form-group">
-      <input type="text" name="address" placeholder="адрес" formControlName="address"
-             class="form-control"
-      >
-    </div>
-    <div class="form-group">
-      <input type="email" name="email" placeholder="електронна пошта" formControlName="email"
-             class="form-control"
-      >
-    </div>
-    <div class="form-group">
-      <input type="number" name="phone" placeholder="телефон" formControlName="phone"
-             class="form-control"
-      >
-    </div>
-    <div class="form-group text-center">
-      <button
-        type="submit"
-        class="btn btn-primary submit"
-        [disabled]="form.invalid || form.disabled"
-      >
-        Оформити
-      </button>
-    </div>
-  </form>
+      <form class="order-form" [formGroup]="form" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <input type="text" name="address" placeholder="адрес" formControlName="address"
+                class="form-control"
+          >
+        </div>
+        <div class="form-group">
+          <input type="email" name="email" placeholder="електронна пошта" formControlName="email"
+                class="form-control"
+          >
+        </div>
+        <div class="form-group">
+          <input type="number" name="phone" placeholder="телефон" formControlName="phone"
+                class="form-control"
+          >
+        </div>
+        <div class="form-group text-center">
+          <button
+            type="submit"
+            class="btn btn-primary submit"
+            [disabled]="form.invalid || form.disabled"
+          >
+            Оформити
+          </button>
+        </div>
+      </form>
 
-</div>
+    </div>
+  </div>
+  </div>
 </div>
