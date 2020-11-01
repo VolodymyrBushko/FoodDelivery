@@ -1,0 +1,43 @@
+input.ng-touched.ng-invalid {
+  border: solid red 1px;
+}
+
+input.ng-touched.ng-valid {
+  border: solid green 1px;
+}
+
+.boxclose {
+  float: right;
+  margin-top: -5px;
+  margin-right: -30px;
+  cursor: pointer;
+  color: #fff;
+  border: none;
+  background: red;
+  font-size: 31px;
+  font-weight: bold;
+  display: inline-block;
+  line-height: 0px;
+  padding: 11px 3px;
+  border-radius: 50%;
+}
+
+.boxclose:before {
+  content: "×";
+}
+
+.boxclose:hover {
+  opacity: 0.5;
+}
+
+.boxclose:active {
+  transform: scale(1.1);
+}
+
+.boxclose:focus {
+  outline: 0;
+}
+
+.items-card {
+  background-color: #E8E8E8;
+}

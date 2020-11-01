@@ -10,7 +10,7 @@ module.exports = [
 
   body('date')
     .trim()
-    .isDate()
+    .isString()
     .optional()
     .withMessage('invalid date'),
 

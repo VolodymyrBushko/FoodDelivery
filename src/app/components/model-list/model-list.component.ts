@@ -5,6 +5,7 @@ import {UserService} from '../../services/user.service';
 import {ItemService} from '../../services/item.service';
 import {CategoryService} from '../../services/category.service';
 import {OrderService} from '../../services/order.service';
+import mannequins from '../../other/mannequins';
 
 @Component({
   selector: 'app-model-list',
@@ -17,8 +18,12 @@ export class ModelListComponent implements OnInit {
     this.choice.next(choice);
   }
 
-  choice: BehaviorSubject<string> = new BehaviorSubject<string>('items');
   array = null;
+  loader: boolean = false;
+  choice: BehaviorSubject<string> = new BehaviorSubject<string>('items');
+  shortCategories = null;
+  shortUsers = null;
+  shortItems = null;
 
   constructor(
     private userService: UserService,
@@ -28,124 +33,74 @@ export class ModelListComponent implements OnInit {
   ) {
   }
 
-  ngOnInit(): void {
-    this.choice.subscribe(
-      choice => {
-        this.onChoice(choice);
-      }
-    );
+  async ngOnInit() {
+    this.choice.subscribe(choice => this.onChoice(choice));
+    this.shortCategories = await this.getShortCategories();
+    this.shortUsers = await this.getShortUsers();
+    this.shortItems = await this.getShortItems();
   }
 
   async onChoice(choice) {
+    this.loader = true;
     switch (choice) {
       case 'items':
         this.array = await this.itemService.getItems().toPromise();
+        this.array.unshift(mannequins.item);
         break;
       case 'categories':
         this.array = await this.categoryService.getCategories().toPromise();
+        this.array.unshift(mannequins.category);
         break;
       case 'orders':
         this.array = await this.orderService.getOrders().toPromise();
+        this.array.unshift(mannequins.order);
         break;
       case 'users':
         this.array = await this.userService.getUsers().toPromise();
+        this.array.unshift(mannequins.user);
         break;
     }
-    console.log(this.array);
+    this.loader = false;
   }
 
-  onUpdate(obj) {
-    switch (this.choice.getValue()) {
-      case 'items': /**/
-        break;
-      case 'categories': /**/
-        break;
-      case 'orders': /**/
-        break;
-      case 'users': /**/
-        break;
-    }
+  onDelete(delId: string) {
+    this.array = this.array.filter(({_id}) => _id !== delId);
   }
 
-  onDelete(id) {
-    switch (this.choice.getValue()) {
-      case 'items': /**/
-        break;
-      case 'categories': /**/
-        break;
-      case 'orders': /**/
-        break;
-      case 'users': /**/
-        break;
+  async getShortCategories() {
+    try {
+      const categories = await this.categoryService.getCategories().toPromise() as [] || [];
+      return categories.map(({_id, name}) => ({
+        _id, name
+      }));
+    } catch (e) {
+      console.log(e.message);
+      return [];
     }
   }
 
-  selector() {
-    switch (this.choice.getValue()) {
-      case 'items':
-        return this.itemSelector(this.array);
-      case 'categories':
-        return this.categorySelector(this.array);
-      case 'users':
-        return this.userSelector(this.array);
-      case 'orders':
-        return this.orderSelector(this.array);
+  async getShortUsers() {
+    try {
+      const users = await this.userService.getUsers().toPromise() as [] || [];
+      return users.map(({_id, login}) => ({
+        _id, login
+      }));
+    } catch (e) {
+      console.log(e.message);
+      return [];
     }
   }
 
-  orderSelector(orders: []) {
-    return orders.map(order => ({
-      _id: order['_id'],
-      preview: `${order['user']['login']} <${order['email']}> (${order['date']})`,
-      fields: {
-        'email': order['email'],
-        'address': order['address'],
-        'totalPrice': order['totalPrice'],
-        'items': (order['items'] as Array<object>).map(item => ({
-          '_id': item['item']['_id'],
-          'name': item['item']['name'],
-          'quantity': item['quantity']
-        }))
-      }
-    }));
-  }
-
-  userSelector(users: []) {
-    return users.map(user => ({
-      _id: user['_id'],
-      preview: `${user['login']} <${user['email']}>`,
-      fields: {
-        'login': user['login'],
-        'phone': user['phone'],
-        'imageUrl': user['imageUrl']
-      }
-    }));
-  }
-
-  itemSelector(items: []) {
-    return items.map(item => ({
-      _id: item['_id'],
-      preview: `${item['name']} (${item['category']['name']})`,
-      fields: {
-        'name': item['name'],
-        'price': item['price'],
-        'category': item['category']['name'],
-        'description': item['description'],
-        'weight': item['weight'],
-        'imageUrl': item['imageUrl']
-      }
-    }));
-  }
-
-  categorySelector(categories: []) {
-    return categories.map(category => ({
-      _id: category['_id'],
-      preview: category['name'],
-      fields: {
-        'name': category['name'],
-        'imageUrl': category['imageUrl']
-      }
-    }));
+  async getShortItems() {
+    try {
+      const items = await this.itemService.getItems().toPromise() as [] || [];
+      return items.map(({_id, name}) => ({
+        _id, name
+      }));
+    } catch (e) {
+      console.log(e.message);
+      return [];
+    }
   }
 
 }

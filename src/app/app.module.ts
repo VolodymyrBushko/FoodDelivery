@@ -36,6 +36,10 @@ import {RouterModule} from '@angular/router';
 import { CardComponent } from './components/card/card.component';
 import { SliderComponent } from './components/slider/slider.component';
 import { AuthPageComponent } from './pages/auth-page/auth-page.component';
+import { UserFormComponent } from './forms/user-form/user-form.component';
+import { ItemFormComponent } from './forms/item-form/item-form.component';
+import { CategoryFormComponent } from './forms/category-form/category-form.component';
+import { OrderFormComponent } from './forms/order-form/order-form.component';
 
 
 
@@ -68,6 +72,10 @@ import { AuthPageComponent } from './pages/auth-page/auth-page.component';
     InfoComponent,
     PortfolioComponent,
     AuthPageComponent,
+    UserFormComponent,
+    ItemFormComponent,
+    CategoryFormComponent,
+    OrderFormComponent,
   ],
   imports: [
     BrowserModule,
