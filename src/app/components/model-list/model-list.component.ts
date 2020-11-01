@@ -17,8 +17,9 @@ export class ModelListComponent implements OnInit {
     this.choice.next(choice);
   }
 
-  choice: BehaviorSubject<string> = new BehaviorSubject<string>('items');
   array = null;
+  loader: boolean = false;
+  choice: BehaviorSubject<string> = new BehaviorSubject<string>('items');
 
   constructor(
     private userService: UserService,
@@ -37,6 +38,7 @@ export class ModelListComponent implements OnInit {
   }
 
   async onChoice(choice) {
+    this.loader = true;
     switch (choice) {
       case 'items':
         this.array = await this.itemService.getItems().toPromise();
@@ -51,101 +53,11 @@ export class ModelListComponent implements OnInit {
         this.array = await this.userService.getUsers().toPromise();
         break;
     }
-    console.log(this.array);
+    this.loader = false;
   }
 
-  onUpdate(obj) {
-    switch (this.choice.getValue()) {
-      case 'items': /**/
-        break;
-      case 'categories': /**/
-        break;
-      case 'orders': /**/
-        break;
-      case 'users': /**/
-        break;
-    }
-  }
-
-  onDelete(id) {
-    switch (this.choice.getValue()) {
-      case 'items': /**/
-        break;
-      case 'categories': /**/
-        break;
-      case 'orders': /**/
-        break;
-      case 'users': /**/
-        break;
-    }
-  }
-
-  selector() {
-    switch (this.choice.getValue()) {
-      case 'items':
-        return this.itemSelector(this.array);
-      case 'categories':
-        return this.categorySelector(this.array);
-      case 'users':
-        return this.userSelector(this.array);
-      case 'orders':
-        return this.orderSelector(this.array);
-    }
-  }
-
-  orderSelector(orders: []) {
-    return orders.map(order => ({
-      _id: order['_id'],
-      preview: `${order['user']['login']} <${order['email']}> (${order['date']})`,
-      fields: {
-        'email': order['email'],
-        'address': order['address'],
-        'totalPrice': order['totalPrice'],
-        'items': (order['items'] as Array<object>).map(item => ({
-          '_id': item['item']['_id'],
-          'name': item['item']['name'],
-          'quantity': item['quantity']
-        }))
-      }
-    }));
-  }
-
-  userSelector(users: []) {
-    return users.map(user => ({
-      _id: user['_id'],
-      preview: `${user['login']} <${user['email']}>`,
-      fields: {
-        'login': user['login'],
-        'phone': user['phone'],
-        'imageUrl': user['imageUrl']
-      }
-    }));
-  }
-
-  itemSelector(items: []) {
-    return items.map(item => ({
-      _id: item['_id'],
-      preview: `${item['name']} (${item['category']['name']})`,
-      fields: {
-        'name': item['name'],
-        'price': item['price'],
-        'category': item['category']['name'],
-        'description': item['description'],
-        'weight': item['weight'],
-        'imageUrl': item['imageUrl']
-      }
-    }));
-  }
-
-  categorySelector(categories: []) {
-    return categories.map(category => ({
-      _id: category['_id'],
-      preview: category['name'],
-      fields: {
-        'name': category['name'],
-        'imageUrl': category['imageUrl']
-      }
-    }));
+  onDelete(delId: string) {
+    this.array = this.array.filter(({_id}) => _id !== delId);
   }
 
 }

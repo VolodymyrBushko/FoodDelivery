@@ -1,0 +1,32 @@
+<form [formGroup]="form" *ngIf="user" class="bg-light p-3 rounded" novalidate>
+
+  <div class="form-group">
+    <label for="login">Login</label>
+    <input id="login" type="text" class="form-control" formControlName="login">
+    <div class="text-danger" *ngIf="form.controls['login'].invalid && form.controls['login'].touched">
+      <p>invalid login</p>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="phone">Phone</label>
+    <input id="phone" type="number" class="form-control" formControlName="phone">
+    <div class="text-danger" *ngIf="form.controls['phone'].invalid && form.controls['phone'].touched">
+      <p>invalid phone</p>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="imageUrl">Image url</label>
+    <input id="imageUrl" type="text" class="form-control" formControlName="imageUrl">
+    <div class="text-danger" *ngIf="form.controls['imageUrl'].invalid && form.controls['imageUrl'].touched">
+      <p>invalid imageUrl</p>
+    </div>
+  </div>
+
+  <div class="form-group d-flex justify-content-end">
+    <button class="btn btn-warning" (click)="update()" [disabled]="form.invalid">update</button>
+    <button class="btn btn-danger" (click)="delete()">delete</button>
+  </div>
+
+</form>
