@@ -18,8 +18,7 @@
 
 .border {
   border: none !important;
-  background: rgb(253,187,45);
-  background: linear-gradient(0deg, rgba(253,187,45,1) 0%, rgba(191,166,140,1) 100%);
+  background-image: url(../../../assets/images/card/background-image.jpg);
   border-radius: 10px;
 }
 

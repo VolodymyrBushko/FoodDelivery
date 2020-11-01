@@ -2,3 +2,15 @@
     background-image: url(../../../assets/images/card/background-image.jpg);
     border-radius: 40px;
 }
+.background {
+    margin-top: 20px;
+    padding: 10px;
+    background-image: url(../../../assets/images/card/background-image.jpg);
+    border-radius: 40px;
+}
+b {
+    color: #FFB362;
+    text-shadow: 2px 2px 5px #5a3003;
+    font-size: 15pt;
+    font: 15pt icon;
+}

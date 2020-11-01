@@ -14,6 +14,7 @@
   transform: scale(1.1);
 }
 .btn-update{
+  margin-bottom: 10px;
   background: rgb(253,187,45);
   background: linear-gradient(0deg, rgba(253,187,45,1) 0%, rgba(191,166,140,1) 100%);
   text-shadow: 2px 2px 5px #7c4f1f;
