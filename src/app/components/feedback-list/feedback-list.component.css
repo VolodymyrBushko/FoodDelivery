@@ -8,11 +8,21 @@ ul{
   padding: 10px;
   border-radius: 20px ;
 }
-
 li{
   list-style: none;
   display: flex;
-  justify-content: space-between;
+  justify-content:space-around;
+}
+li div button{
+  list-style: none;
+  display: flex;
+  justify-content: right;
+
+}
+li p{
+  /*list-style: none;*/
+  /*display: flex;*/
+  /*justify-content: left ;*/
 }
 .elem{
   background: rgb(236, 233, 233);
@@ -30,10 +40,40 @@ span{
 p{
   margin: 10px;
   text-shadow: 2px 2px 5px #5a3003;
-  font-size: 15pt;
-  font: 15pt icon; 
+
+  font: 15pt icon;
 }
 
 .img {
-  width: 30px;
+  width: 80px;
+}
+.boxclose{
+  float: right;
+  margin-top: 5px;
+  margin-right: 5px;
+  cursor: pointer;
+  color: #fff;
+  border: none;
+  background: red;
+  font-size: 20px;
+  font-weight: bold;
+  display: inline-block;
+  line-height: 0px;
+  padding: 10px 10px;
+  border-radius: 30%;
+  box-shadow: 2px 2px 5px #5a3003;
+
+}
+.boxclose:before{
+  content:"x";
+}
+
+.boxclose:hover{
+  opacity: 0.5;
+}
+.boxclose:active{
+  transform: scale(1.1);
+}
+.boxclose:focus{
+  outline: 0;
 }

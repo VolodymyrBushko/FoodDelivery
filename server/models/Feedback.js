@@ -2,17 +2,18 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const schema = new Schema({
 
-  imageUrl: {
-    type: String,
-    required: true
+  user: {
+    type: mongoose.Schema.Types.ObjectID,
+    ref: 'User',
+    default: null
   },
   date: {
     type: Date,
     default: new Date()
   },
-  post:{
-    type:String,
-    required:true
+  post: {
+    type: String,
+    required: true
   }
 });
 
