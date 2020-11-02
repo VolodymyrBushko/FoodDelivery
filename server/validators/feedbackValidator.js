@@ -2,8 +2,6 @@ const {body} = require('express-validator');
 
 module.exports = [
 
-
-
   body('imageUrl')
     .trim()
     .optional()
@@ -19,6 +17,6 @@ module.exports = [
     .trim()
     .notEmpty()
     .isString()
-    .isLength({min: 4})
+    .isLength({min: 1})
     .withMessage('invalid feedback post'),
 ];

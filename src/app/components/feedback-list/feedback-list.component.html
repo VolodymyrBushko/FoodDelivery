@@ -1,13 +1,27 @@
-
 <div class="root">
-  <h5 ></h5>
   <ul>
-    <li *ngFor = "let item of comentsUserTest"  class="elem my-2">
+    <li class="elem my-2 d-flex"><textarea [(ngModel)]="post" rows="auto" class="form-control"
+                                           PLACEHOLDER="Ведіть ваш коментар">
+     </textarea>
+      <div class="d-flex justify-content-end">
+        <input class="btn btn-success  " type="button" value="Додати коментар" (click)="addPost()">
+      </div>
+    </li>
+  </ul>
+  <ul *ngIf="comentsUserTest.length">
+    <li *ngFor="let item of comentsUserTest" class="elem my-2">
       <span>
-        <img [src]="item.urlimage" alt="avaUser" class="img">
-        <p>{{item.feedback}} </p>
+        <img [src]="item['user'].imageUrl" alt="avaUser" class="img">
       </span>
-      <p>{{item.date}}</p>
+      <p class="">{{item['user']['email']}}<br>
+        {{item['post']}}<br>
+        {{item['date']|date:'medium'}}</p>
+      <div class="delete">
+        <button *ngIf="id&&item['user']._id==id" class="boxclose"
+                (click)="deletePost(item['_id'])"></button>
+      </div>
     </li>
   </ul>
 </div>
+
+

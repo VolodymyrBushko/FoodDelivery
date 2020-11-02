@@ -5,7 +5,7 @@ module.exports = {
 
   async getPost(req, res) {
     try {
-      const feedback = await Feedback.find();
+      const feedback = await Feedback.find().populate('user', 'imageUrl isAdmin email');
       await res.json(feedback);
     } catch (e) {
       console.log(e);
@@ -17,11 +17,13 @@ module.exports = {
     try {
 
       const errors = validationResult(req);
+
       if (!errors.isEmpty())
         return res.status(422).json({message: errors.array()[0].msg});
 
-      const {imageUrl,post} = req.body;
-      const feedback = new Feedback({imageUrl: imageUrl,post:post});
+      const {_id, post} = req.body;
+      const feedback = new Feedback({user: _id, post: post});
+      console.log(req.body);
       await feedback.save();
       await res.status(201).json(feedback);
     } catch (e) {
@@ -33,7 +35,7 @@ module.exports = {
   async deletePostById(req, res) {
     try {
       const {id} = req.params;
-      const feedback = await Feedback.remove({_id: id});
+      const feedback = await Feedback.deleteOne({_id: id});
       await res.json(feedback);
     } catch (e) {
       console.log(e);
