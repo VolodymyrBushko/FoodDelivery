@@ -47,6 +47,7 @@ export class OrderPageComponent implements OnDestroy {
     cart.forEach(({_id: item, quantity}) => order.items.push({item, quantity}));
     try {
       await this.orderService.addOrder(order).toPromise();
+      await this.orderService.sendOrderEmail(order).toPromise();
       console.log('order has been added');
       await this.router.navigate(['/']);
       localStorage.setItem('cart', null);

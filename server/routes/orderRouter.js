@@ -10,5 +10,6 @@ router.get('/users/:id', passport.authenticate('jwt', {session: false}), control
 router.post('/add', validator, controller.addOrder);
 router.delete('/:id', passport.authenticate('jwt', {session: false}), controller.deleteOrder);
 router.put('/:id', [passport.authenticate('jwt', {session: false}), validator], controller.updateOrder);
+router.post('/email/send', validator, controller.sendOrderEmail);
 
 module.exports = router;

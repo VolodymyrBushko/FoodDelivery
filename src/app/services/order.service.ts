@@ -36,4 +36,8 @@ export class OrderService {
     return this.http.put(`${this._baseUrl}/${id}`, order);
   }
 
+  sendOrderEmail(order: Order) {
+    return this.http.post(`${this._baseUrl}/email/send`, order);
+  }
+
 }

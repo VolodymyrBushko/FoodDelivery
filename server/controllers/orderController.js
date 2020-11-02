@@ -1,5 +1,14 @@
 const Order = require('../models/Order');
 const {validationResult} = require('express-validator');
+const nodemailer = require('nodemailer');
+const sendgrid = require('nodemailer-sendgrid-transport');
+const config = require('config');
+
+const transporter = nodemailer.createTransport(sendgrid({
+  auth: {
+    api_key: config.get('send_grid_api_key')
+  }
+}));
 
 module.exports = {
 
@@ -72,6 +81,30 @@ module.exports = {
       const {id: _id} = req.params;
       const order = await Order.findByIdAndUpdate(_id, req.body);
       await res.status(202).json(order);
+    } catch (e) {
+      console.log(e);
+      await res.status(500).json({message: e.message});
+    }
+  },
+
+  async sendOrderEmail(req, res) {
+    try {
+
+      const errors = validationResult(req);
+      if (!errors.isEmpty())
+        return res.status(422).json({message: errors.array()[0].msg});
+
+      await transporter.sendMail({
+        to: req.body.email,
+        from: 'testcomandproject@gmail.com',
+        subject: 'Замовлення',
+        html: `
+          <h1>Замовлення успішно оформлено!</h1>
+          <p>${req.body.date}</p>
+          <hr>
+        `
+      });
+      res.json({message: 'email has been sent'});
     } catch (e) {
       console.log(e);
       await res.status(500).json({message: e.message});
