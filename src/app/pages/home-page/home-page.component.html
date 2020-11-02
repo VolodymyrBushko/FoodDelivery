@@ -8,20 +8,11 @@
   </div>
 </div>
 
-<div class="container-fluid mt-3 mb-3 background">
+<div class="container-fluid mt-3 mb-3 background" *ngIf="items">
   <div class="text-center pt-3"><h2 class="d-flex justify-content-center text-update">Рекомендований набір</h2></div>
-  <div class="text-center">
-    <button class="btn btn-lg btn-update">Обновити набір</button>
-  </div>
 
-  <div class="row p-3" *ngIf="item">
-    <div class="col-md-4 col-12 py-2 px-2 d-flex justify-content-center ">
-      <app-item-card [item]="item"></app-item-card>
-    </div>
-    <div class="col-md-4 col-12 py-2 px-2 d-flex justify-content-center ">
-      <app-item-card [item]="item"></app-item-card>
-    </div>
-    <div class="col-md-4 col-12 py-2 px-2 d-flex justify-content-center ">
+  <div class="row p-3">
+    <div class="col-md-4 col-12 py-2 px-2 d-flex justify-content-center" *ngFor="let item of items">
       <app-item-card [item]="item"></app-item-card>
     </div>
   </div>
