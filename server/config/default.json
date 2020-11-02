@@ -1,5 +1,6 @@
 {
   "port": 5000,
   "mongoUri": "mongodb+srv://food-deliveri:543212345@cluster0.gkbys.mongodb.net/foodDev?retryWrites=true&w=majority",
-  "jwtSecret": "IWykZKLL4GxdQZUlrw1QDG7t1Z3Te5Sc"
+  "jwtSecret": "IWykZKLL4GxdQZUlrw1QDG7t1Z3Te5Sc",
+  "send_grid_api_key": "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"
 }

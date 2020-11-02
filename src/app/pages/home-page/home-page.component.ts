@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ItemService} from '../../services/item.service';
+import randomItems from '../../utils/randomItems';
 
 @Component({
   selector: 'app-home-page',
@@ -8,19 +9,16 @@ import {ItemService} from '../../services/item.service';
 })
 export class HomePageComponent implements OnInit {
 
-  item;
+  items: [] = null;
 
   constructor(
     private itemService: ItemService
   ) {
   }
 
-  ngOnInit(): void {
-    this.itemService.getItemById('5f9a77d3c23e34134458dc83')
-      .subscribe(
-        data => this.item = data,
-        err => console.log(err.message || err)
-      );
+  async ngOnInit() {
+    const items = await this.itemService.getItems().toPromise();
+    this.items = randomItems(items, 3) as [];
   }
 
 }

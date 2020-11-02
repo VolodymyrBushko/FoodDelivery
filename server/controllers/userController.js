@@ -28,6 +28,17 @@ module.exports = {
     }
   },
 
+  async getUserIdByEmail(req, res) {
+    try {
+      const {email} = req.params;
+      const {_id} = await User.findOne({email});
+      await res.json({_id});
+    } catch (e) {
+      console.log(e);
+      await res.status(500).json({message: e.message});
+    }
+  },
+
   async loginUser(req, res) {
     try {
       const user = await User.findOne({email: req.body.email});
