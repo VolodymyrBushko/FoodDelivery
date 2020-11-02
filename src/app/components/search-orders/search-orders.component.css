@@ -1,0 +1,35 @@
+.container {
+  background-image: url(../../../assets/images/card/background-image.jpg);
+  border-radius: 20px !important;
+}
+
+.wrapper {
+  border-radius: 10px !important;
+  padding: 10px !important;
+  background: rgb(253, 187, 45);
+  background: linear-gradient(0deg, rgba(253, 187, 45, 1) 0%, rgba(191, 166, 140, 1) 100%);
+  color: #000000;
+  text-shadow: 2px 2px 5px #5a3003;
+  font: 15pt icon;
+  font-weight: 600;
+  border: solid #A5A29D 3px;
+  margin: 0;
+}
+
+input {
+  border-color: white;
+}
+
+input.ng-touched.ng-invalid {
+  border: solid red 1px;
+}
+
+input.ng-touched.ng-valid {
+  border: solid green 1px;
+}
+
+.items-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}

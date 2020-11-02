@@ -1,0 +1,47 @@
+<div class="container my-5 p-2">
+  <div class="row d-flex justify-content-center">
+    <div class="col-10 wrapper">
+
+      <form [formGroup]="form">
+        <div class="form-group">
+          <label for="email">User email</label>
+          <input id="email" type="email" formControlName="email"
+                 class="form-control" placeholder="..." (change)="onChange()">
+        </div>
+        <div class="text-danger" *ngIf="form.controls['email'].invalid && form.controls['email'].touched">
+          <p>invalid email</p>
+        </div>
+      </form>
+
+    </div>
+  </div>
+  <div class="row d-flex justify-content-center">
+    <div class="col-10">
+
+      <div *ngIf="orders">
+        <div class="card text-center mt-1" *ngFor="let order of orders; let i = index">
+          <div class="card-header">
+            Order #{{i + 1}}
+          </div>
+          <div class="card-body">
+            <p class="card-text text-left m-0"><strong>Login:&nbsp;</strong>{{order['user']['login']}}</p>
+            <p class="card-text text-left m-0"><strong>Address:&nbsp;</strong>{{order['address']}}</p>
+            <p class="card-text text-left m-0"><strong>Total price:&nbsp;</strong>{{order['totalPrice']}}</p>
+            <ul class="items-list d-flex flex-column mt-2">
+              <li *ngFor="let item of order['items']">
+                <div class="d-flex justify-content-start">
+                  <strong>Item:&nbsp;</strong>{{item['item']['name']}};&nbsp;<br>
+                  <strong>Quantity:&nbsp;</strong>{{item['quantity']}}
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="card-footer text-muted">
+            {{order['date']|date}}
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

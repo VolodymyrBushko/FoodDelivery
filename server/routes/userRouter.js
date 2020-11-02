@@ -6,6 +6,7 @@ const userRouter = express.Router();
 
 userRouter.get("/", passport.authenticate('jwt', {session: false}), userController.getUsers);
 userRouter.get("/:id", passport.authenticate('jwt', {session: false}), userController.getUserById);
+userRouter.get("/email/:email", passport.authenticate('jwt', {session: false}), userController.getUserIdByEmail);
 userRouter.post("/login", userController.loginUser);
 userRouter.post("/register", validator, userController.registerUser);
 userRouter.put("/update/:id", [passport.authenticate('jwt', {session: false})], userController.updateUserById);

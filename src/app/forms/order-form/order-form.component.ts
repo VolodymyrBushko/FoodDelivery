@@ -26,7 +26,7 @@ export class OrderFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.form = this.formBuilder.group({
-      user: [this.order['user']['_id']],
+      user: [this.order['user'] ? this.order['user']['_id'] : null],
       date: [this.order['date']],
       email: [this.order['email']],
       address: [this.order['address']],
