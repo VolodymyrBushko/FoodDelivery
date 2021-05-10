@@ -1,6 +1,6 @@
 # FoodDelivery
 
-FoodDelivery is a fullstack project on Angular 2 and NodeJS. The project simulates the behavior of a modern WebShop (without a purchasing system).
+FoodDelivery is a fullstack project on Angular 2 and NodeJS. The project simulates the behavior of a modern WebShop.
 
 ## Steps to run:
 
